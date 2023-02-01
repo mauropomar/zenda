@@ -1,7 +1,6 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage, useField } from "formik";
-import * as Yup from "yup";
-import { TextInput, Button, View, StyleSheet } from "react-native";
+import { Formik, useField } from "formik";
+import { Button, View, StyleSheet, ImageBackground } from "react-native";
 import StyledTextInput from "../../components/input/StyleTextInput";
 import { loginValidationSchema } from "../../validationSchemas/LoginSchema";
 import StyledText from "../../components/input/StyledText";
@@ -28,14 +27,17 @@ const FormikInputValue = ({ name, ...props }) => {
 
 export default function LoginPage() {
   return (
-    <Formik
+    <View style={styles.container}>
+      <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
+    
+      <Formik
       validationSchema={loginValidationSchema}
       initialValues={initialValues}
       onSubmit={(values) => console.log(values)}
     >
       {({ handleSubmit }) => {
         return (
-          <View style={styles.form}>
+          <View style={styles.form}>         
             <FormikInputValue name="email" placeholder="E-mail" />
             <FormikInputValue
               name="password"
@@ -51,10 +53,15 @@ export default function LoginPage() {
         );
       }}
     </Formik>
+    </ImageBackground> 
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   error: {
     color: "red",
     fontSize: 12,
@@ -63,5 +70,13 @@ const styles = StyleSheet.create({
   },
   form: {
     margin: 12,
+    flex: 1,
+    justifyContent: 'center',
+    marginTop:200
+  },
+  image: {
+    flex: 1,
+    height:'50%',
+    justifyContent: 'top',
   },
 });
