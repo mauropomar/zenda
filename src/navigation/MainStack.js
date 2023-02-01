@@ -12,7 +12,7 @@ function MainStack() {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName='HomeScreen'
+                initialRouteName='Login'
             >
                 <Stack.Screen
                     name="HomeScreen"
