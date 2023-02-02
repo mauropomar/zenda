@@ -7,8 +7,9 @@ const Theme = {
   colors: {
     textPrimary: '#24292e',
     textSecondary: '#586069',
+    textBlackLight:'#666666',
     primary: '#0F8847',
-    white: '#fefefe'
+    white: '#fefefe',
   },
   fontSizes: {
     body: 14,

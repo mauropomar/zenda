@@ -3,11 +3,15 @@ import { TextInput, StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
     textInput: {
+        borderRadius:5,
         height:53,
         backgroundColor:'#CDEBCD',
         paddingHorizontal: 20,
         paddingVertical: 10,
-        marginBottom: 10
+        marginBottom: 10,
+        fontWeight:'bold',
+        fontSize:16
+        
     },
     error: {
         borderColor: 'red'

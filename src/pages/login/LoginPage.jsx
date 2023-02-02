@@ -38,7 +38,7 @@ export default function LoginPage() {
               source={require('../../../assets/images/user_photo.png')}
             />
           </View>
-          <StyledText align='center' fontWeight='bold' fontSize='heading' style={styles.textWelcome}>¡Bienvenido otra vez!</StyledText>
+          <StyledText align='center' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>¡Bienvenido otra vez!</StyledText>
           <Formik
             validationSchema={loginValidationSchema}
             initialValues={initialValues}
