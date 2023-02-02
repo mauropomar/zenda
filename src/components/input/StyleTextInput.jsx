@@ -4,11 +4,10 @@ import { TextInput, StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
     textInput: {
         height:53,
-        backgroundColor:'#EFF8EF',
+        backgroundColor:'#CDEBCD',
         paddingHorizontal: 20,
         paddingVertical: 10,
-        marginBottom: 10,
-        fontFamily:'Source Sans Pro'
+        marginBottom: 10
     },
     error: {
         borderColor: 'red'

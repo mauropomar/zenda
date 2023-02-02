@@ -5,6 +5,7 @@ import StyledTextInput from "../../components/input/StyleTextInput";
 import { loginValidationSchema } from "../../validationSchemas/LoginSchema";
 import StyledText from "../../components/input/StyledText";
 
+
 const initialValues = {
   email: "",
   password: "",
@@ -29,9 +30,8 @@ export default function LoginPage() {
   return (
     <View style={styles.container}>
 
-      <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
-
-        <View style={styles.containerForm}>
+     <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
+     <View style={styles.containerForm}>
           <View style={styles.containerImage}>
             <Image
               style={styles.userPhoto}
@@ -53,9 +53,7 @@ export default function LoginPage() {
                     placeholder="Contraseña"
                     secureTextEntry
                   />
-                  <View style={styles.containerForgot}>
-                    <StyledText color='primary' fontWeight='bold' style={styles.forgotPass}>Olvidaste tu contraseña?</StyledText>
-                  </View>
+                  <StyledText color='primary' fontWeight='bold' style={styles.forgotPassword}>Olvidaste tu contraseña?</StyledText>             
                   <Button
                     onPress={handleSubmit}
                     title="Ingresar"
@@ -70,7 +68,8 @@ export default function LoginPage() {
             }}
           </Formik>
         </View>
-      </ImageBackground>
+        
+    </ImageBackground>
     </View>
   );
 }
@@ -81,22 +80,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   containerForm: {
-    top: '30%',
+    top: '20%',
     justifyContent: 'center',
   },
   containerImage: {
     alignItems: 'center',
     justifyContent: 'center',
   },
-  containerForgot: {
-    alignItems: 'end',
-    marginBottom: 40
-  },
-  containerRegister:{
-    marginTop: 60,
+  containerRegister: {
+    marginTop: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection:'row'
+    flexDirection: 'row'
   },
   error: {
     color: "red",
@@ -113,18 +108,18 @@ const styles = StyleSheet.create({
     height: '50%',
   },
   userPhoto: {
-    marginBottom: 40,
+    marginBottom: 20,
     width: 150,
     height: 150,
     resizeMode: 'cover',
   },
   textWelcome: {
     fontSize: 24,
-    fontFamily: 'Source Sans Pro',
     marginBottom: 30
   },
-  forgotPass: {
+  forgotPassword: {
     fontSize: 15,
-    marginBottom: 10
+    alignSelf: 'flex-end',
+    marginBottom: 40
   }
 });
