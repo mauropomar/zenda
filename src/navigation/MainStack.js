@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import StackScreen from '../pages/screen/StackScreen';
 import LoginPage from '../pages/login/LoginPage';
 import RegisterPage from '../pages/register/RegisterPage';
+import SplashPage from '../pages/splash/SplashPage';
 import HomeNavigation from './HomeNavigation';
 
 const Stack = createNativeStackNavigator();
@@ -13,7 +14,7 @@ function MainStack() {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName='Register'
+                initialRouteName='Splash'
             >
                 <Stack.Screen
                     name="HomeScreen"
@@ -22,6 +23,13 @@ function MainStack() {
                 <Stack.Screen
                     name="Login"
                     component={LoginPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="Splash"
+                    component={SplashPage}
                     options={{
                         headerShown: false
                     }}
