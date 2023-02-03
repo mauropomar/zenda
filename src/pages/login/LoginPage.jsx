@@ -4,6 +4,7 @@ import { Button, View, StyleSheet, ImageBackground, Image } from "react-native";
 import StyledTextInput from "../../components/input/StyleTextInput";
 import { loginValidationSchema } from "../../validationSchemas/LoginSchema";
 import StyledText from "../../components/input/StyledText";
+import { useNavigation } from '@react-navigation/native';
 
 
 const initialValues = {
@@ -27,11 +28,14 @@ const FormikInputValue = ({ name, ...props }) => {
 };
 
 export default function LoginPage() {
+  const navigation = useNavigation();
+  const onShowRegister = (event) => {
+    navigation.navigate("Register")
+  }
   return (
     <View style={styles.container}>
-
-     <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
-     <View style={styles.containerForm}>
+      <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
+        <View style={styles.containerForm}>
           <View style={styles.containerImage}>
             <Image
               style={styles.userPhoto}
@@ -53,7 +57,7 @@ export default function LoginPage() {
                     placeholder="Contraseña"
                     secureTextEntry
                   />
-                  <StyledText color='primary' fontWeight='bold' style={styles.forgotPassword}>Olvidaste tu contraseña?</StyledText>             
+                  <StyledText color='primary' fontWeight='bold' style={styles.forgotPassword}>Olvidaste tu contraseña?</StyledText>
                   <Button
                     onPress={handleSubmit}
                     title="Ingresar"
@@ -61,15 +65,15 @@ export default function LoginPage() {
                   />
                   <View style={styles.containerRegister}>
                     <StyledText color='black' fontWeight='bold'>No tenés cuenta?</StyledText>
-                    <StyledText color='primary' fontWeight='bold'> Registrate</StyledText>
+                    <StyledText color='primary' fontWeight='bold' onPress={onShowRegister} style={styles.hyperlinkRegister}> Registrate</StyledText>
                   </View>
                 </View>
               );
             }}
           </Formik>
         </View>
-        
-    </ImageBackground>
+
+      </ImageBackground>
     </View>
   );
 }
@@ -121,5 +125,8 @@ const styles = StyleSheet.create({
     fontSize: 15,
     alignSelf: 'flex-end',
     marginBottom: 40
+  },
+  hyperlinkRegister: {
+    cursor: 'pointer'
   }
 });

@@ -4,6 +4,7 @@ import { Button, View, StyleSheet, ImageBackground, Image } from "react-native";
 import StyledTextInput from "../../components/input/StyleTextInput";
 import { registerValidationSchema } from "../../validationSchemas/RegisterSchema";
 import StyledText from "../../components/input/StyledText";
+import { useNavigation } from '@react-navigation/native';
 
 const initialValues = {
     name: "",
@@ -29,6 +30,10 @@ const FormikInputValue = ({ name, ...props }) => {
 
 
 export default function RegisterPage() {
+    const navigation = useNavigation();
+    const onShowLogin = (event) => {
+        navigation.navigate("Login")
+    }
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/waves_register.png')} resizeMode="cover" style={styles.image}>
@@ -71,7 +76,7 @@ export default function RegisterPage() {
                                     />
                                     <View style={styles.containerSesion}>
                                         <StyledText color='blackLight' fontWeight='bold' >Ya eres usuario?</StyledText>
-                                        <StyledText color='primary' fontWeight='bold'> Iniciar sesión</StyledText>
+                                        <StyledText color='primary' fontWeight='bold' onPress={onShowLogin}> Iniciar sesión</StyledText>
                                     </View>
                                 </View>
 
@@ -129,5 +134,5 @@ const styles = StyleSheet.create({
         fontSize: 12,
         marginBottom: 20,
         marginTop: -5,
-      },
+    },
 });
