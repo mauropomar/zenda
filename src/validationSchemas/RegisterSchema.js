@@ -18,7 +18,5 @@ export const registerValidationSchema = yup.object().shape({
      .required('Este campo es obligatorio'),
     confirmpassword: yup  
      .string()
-     .min(5, 'No debe ser menor de 5 carácteres')
-     .max(100, 'No debe exceder de 100 carácteres') 
-     .required('Este campo es obligatorio') 
+     .oneOf([yup.ref('password'), null], 'Las contraseñas no coinciden'),
 })
