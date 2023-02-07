@@ -3,8 +3,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 
 import StackScreen from '../pages/screen/StackScreen';
-import LoginPage from '../pages/login/LoginPage';
-import RegisterPage from '../pages/register/RegisterPage';
+import LoginPage from '../pages/auth/LoginPage';
+import RegisterPage from '../pages/auth/RegisterPage';
+import ConfirmEmailPage from '../pages/auth/ConfirmEmailPage';
 import SplashPage from '../pages/splash/SplashPage';
 import HomeNavigation from './HomeNavigation';
 
@@ -37,6 +38,13 @@ function MainStack() {
                 <Stack.Screen
                     name="Register"
                     component={RegisterPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                 <Stack.Screen
+                    name="ConfirmEmail"
+                    component={ConfirmEmailPage}
                     options={{
                         headerShown: false
                     }}

@@ -1,10 +1,11 @@
 import React from "react";
 import { Formik, useField } from "formik";
-import { Button, View, StyleSheet, ImageBackground, Image } from "react-native";
+import { Button, View, StyleSheet, ImageBackground, Image, Alert } from "react-native";
 import StyledTextInput from "../../components/input/StyleTextInput";
 import { registerValidationSchema } from "../../validationSchemas/RegisterSchema";
 import StyledText from "../../components/input/StyledText";
 import { useNavigation } from '@react-navigation/native';
+import { Auth } from "aws-amplify";
 
 const initialValues = {
     name: "",
@@ -31,9 +32,28 @@ const FormikInputValue = ({ name, ...props }) => {
 
 export default function RegisterPage() {
     const navigation = useNavigation();
+
     const onShowLogin = (event) => {
         navigation.navigate("Login")
     }
+
+    const onRegisterPressed = async (data) => {
+        const { username, name, lastName, password, email } = data;
+        navigation.navigate("ConfirmEmail", { email: email });
+        /* 
+         try {
+             const response = await Auth.signUp({
+                 username,
+                 password,
+                 atributes: { email, name, preferred_username: username }
+             });
+             console.log(response);
+             navigation.navigate("ConfirmEmail")
+         } catch (error) {
+             Alert.alert('Error', e.message)
+         }*/
+    }
+
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/waves_register.png')} resizeMode="cover" style={styles.image}>
@@ -51,7 +71,7 @@ export default function RegisterPage() {
                     <Formik
                         validationSchema={registerValidationSchema}
                         initialValues={initialValues}
-                        onSubmit={(values) => console.log(values)}
+                        onSubmit={(values) => onRegisterPressed(values)}
                     >
                         {({ handleSubmit }) => {
                             return (
