@@ -1,10 +1,11 @@
 import { Formik, useField } from "formik";
-import { Button, View, StyleSheet, ImageBackground } from "react-native";
+import { Button, View, StyleSheet, ImageBackground, Alert } from "react-native";
 import StyledText from "../../components/input/StyledText";
 import StyledTextInput from "../../components/input/StyleTextInput";
 import { confirmEmailValidationSchema } from "../../validationSchemas/ConfirmEmail";
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from "@react-navigation/native";
+import { Auth } from "aws-amplify";
 
 const initialValues = {
     email: "",
@@ -31,17 +32,27 @@ export default function ConfirmEmailPage() {
     initialValues.email = route?.params?.email;
 
     const navigation = useNavigation();
-    const onShowLogin = (event) => {
+    const onShowLogin = () => {
         navigation.navigate("Login")
     }
-    const onConfirmPresed = (data) => {
-        console.log(data);
-        navigation.navigate("Register")
+
+    const onConfirmPresed = async (data) => {
+        try {
+            await Auth.confirmSignUp(data.email, data.code)
+            navigation.navigate("HomeScreen")
+        } catch (error) {
+            Alert.alert('Error', e.message)
+        }
     }
-    const onResendPresed = (data) => {
-        console.log(data);
-        navigation.navigate("Login")
+
+    const onResendPresed = async (data) => {
+        try {
+            await Auth.resendSignUp(data.email)
+        } catch (error) {
+            Alert.alert('Error', e.message)
+        }
     }
+
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
@@ -69,9 +80,9 @@ export default function ConfirmEmailPage() {
                                     </View>
                                     <View>
                                         <Button
-                                            onPress={onResendPresed(initialValues)}
+                                            onPress={handleSubmit}
                                             title="Reenviar Código"
-                                            color="#000000"                                        
+                                            color="#000000"
                                         />
                                     </View>
                                     <View style={styles.containerBackSign}>
@@ -104,8 +115,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'row'
     },
-    containerButtonConfirm:{
-        marginBottom: 10 
+    containerButtonConfirm: {
+        marginBottom: 10
     },
     textWelcome: {
         fontSize: 24,
