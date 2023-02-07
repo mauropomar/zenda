@@ -15,10 +15,6 @@ export default function SplashPage() {
                 style={styles.logo}
                 source={require('../../../assets/images/logo.png')}
             />
-            <Image
-                style={styles.imageWaver}
-                source={require('../../../assets/images/waver_bottom.png')}
-            />
         </View>
     );
 }
@@ -31,13 +27,5 @@ const styles = StyleSheet.create({
     },
     logo:{
        
-    },
-    imageWaver: {
-        width: '100%',
-        height: '60%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'absolute', //Here is the trick
-        bottom: 0, //Here is the trick
-    },
+    }
 });

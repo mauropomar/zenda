@@ -39,15 +39,16 @@ export default function LoginPage() {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
+      <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
+        <View style={styles.containerImage}>
+          <Image
+            style={styles.logo}
+            source={require('../../../assets/images/logo_header.png')}
+          />
+        </View>
         <View style={styles.containerForm}>
-          <View style={styles.containerImage}>
-            <Image
-              style={styles.userPhoto}
-              source={require('../../../assets/images/user_photo.png')}
-            />
-          </View>
-          <StyledText align='center' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>¡Bienvenido otra vez!</StyledText>
+
+          <StyledText align='left' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>Iniciar Sesión</StyledText>
           <Formik
             validationSchema={loginValidationSchema}
             initialValues={initialValues}
@@ -114,16 +115,18 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    height: '50%',
   },
-  userPhoto: {
-    marginBottom: 20,
-    width: 150,
-    height: 150,
+  logo: {
+    top: 30,
+    width: 100,
+    height: 50,
     resizeMode: 'cover',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   textWelcome: {
     fontSize: 24,
+    marginLeft:10,
     marginBottom: 30
   },
   forgotPassword: {
