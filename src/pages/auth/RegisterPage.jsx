@@ -57,17 +57,16 @@ export default function RegisterPage() {
 
     return (
         <View style={styles.container}>
-            <ImageBackground source={require('../../../assets/images/waves_register.png')} resizeMode="cover" style={styles.image}>
+            <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
+                <View style={styles.containerImage}>
+                    <Image
+                        style={styles.logo}
+                        source={require('../../../assets/images/logo_header.png')}
+                    />
+                </View>
                 <View style={styles.containerForm}>
-                    <View style={styles.containerImage}>
-                        <Image
-                            style={styles.userPhoto}
-                            source={require('../../../assets/images/user_empty.png')}
-                        />
-                    </View>
                     <View style={styles.containerWelcome}>
-                        <StyledText color='blackLight' fontWeight='bold' style={styles.textWelcome}>Crea una cuenta</StyledText>
-                        <StyledText color='primary' fontWeight='bold' style={styles.textWelcome}> gratis</StyledText>
+                        <StyledText color='black' align='left' fontWeight='bold' style={styles.textWelcome}>Crea una cuenta</StyledText>
                     </View>
                     <Formik
                         validationSchema={registerValidationSchema}
@@ -116,7 +115,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     containerForm: {
-        top: '10%',
         justifyContent: 'center',
     },
     containerImage: {
@@ -124,11 +122,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     containerWelcome: {
-        marginTop: 20,
-        marginBottom: 40,
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row'
+        marginTop: 60,
+        marginBottom: 20
     },
     containerSesion: {
         marginTop: 20,
@@ -142,10 +137,18 @@ const styles = StyleSheet.create({
     },
     image: {
         flex: 1,
-        height: '50%',
+    },
+    logo: {
+        top: 10,
+        width: 100,
+        height: 50,
+        resizeMode: 'cover',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     textWelcome: {
         fontSize: 24,
+        marginLeft:10
     },
     textSesion: {
         fontSize: 16,

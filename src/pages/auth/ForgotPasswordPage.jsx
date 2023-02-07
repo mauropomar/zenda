@@ -1,5 +1,5 @@
 import { Formik, useField } from "formik";
-import { Button, View, StyleSheet, ImageBackground, Alert } from "react-native";
+import { Button, View, StyleSheet, ImageBackground, Image, Alert } from "react-native";
 import StyledText from "../../components/input/StyledText";
 import StyledTextInput from "../../components/input/StyleTextInput";
 import { forgotPasswordValidationSchema } from "../../validationSchemas/ForgotPasswordSchema";
@@ -9,7 +9,7 @@ import { Auth } from "aws-amplify";
 
 const initialValues = {
     email: "",
-  };
+};
 
 const FormikInputValue = ({ name, ...props }) => {
     const [field, meta, helpers] = useField(name);
@@ -36,18 +36,24 @@ export default function ForgotPasswordPage() {
 
     const onSendPresed = async (data) => {
         navigation.navigate("ResetPassword", { email: data.email });
-      /*  try {
-            await Auth.forgotPassword(data.email)
-            navigation.navigate("ResetPassword");
-        } catch (error) {
-            Alert.alert('Error', e.message)
-        }*/
+        /*  try {
+              await Auth.forgotPassword(data.email)
+              navigation.navigate("ResetPassword");
+          } catch (error) {
+              Alert.alert('Error', e.message)
+          }*/
     }
     return (
         <View style={styles.container}>
-            <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
+            <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
+                <View style={styles.containerImage}>
+                    <Image
+                        style={styles.logo}
+                        source={require('../../../assets/images/logo_header.png')}
+                    />
+                </View>
                 <View style={styles.containerForm}>
-                    <StyledText align='center' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>Recuperar contraseña</StyledText>
+                    <StyledText align='left' fontWeight='bold' fontSize='heading' color="black" style={styles.textWelcome}>Recuperar contraseña</StyledText>
                     <Formik
                         validationSchema={forgotPasswordValidationSchema}
                         initialValues={initialValues}
@@ -74,7 +80,7 @@ export default function ForgotPasswordPage() {
                 </View>
             </ImageBackground>
         </View>
-    ) 
+    )
 }
 
 const styles = StyleSheet.create({
@@ -83,7 +89,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     containerForm: {
-        top: '40%',
+        top: '10%',
         justifyContent: 'center',
     },
     containerBackSign: {
@@ -92,20 +98,32 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'row'
     },
+    containerImage: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     containerButton: {
         marginBottom: 10
     },
     textWelcome: {
         fontSize: 24,
-        marginBottom: 30
+        marginBottom: 30,
+        marginLeft: 12
     },
     form: {
         margin: 12,
         justifyContent: 'center',
     },
     image: {
-        flex: 1,
-        height: '50%',
+        flex: 1
+    },
+    logo: {
+        top: 10,
+        width: 100,
+        height: 50,
+        resizeMode: 'cover',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     error: {
         color: "red",

@@ -47,8 +47,7 @@ export default function LoginPage() {
           />
         </View>
         <View style={styles.containerForm}>
-
-          <StyledText align='left' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>Iniciar Sesión</StyledText>
+          <StyledText color='black' align='left' fontWeight='bold' fontSize='heading' style={styles.textWelcome}>Iniciar sesión</StyledText>
           <Formik
             validationSchema={loginValidationSchema}
             initialValues={initialValues}
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   logo: {
-    top: 30,
+    top: 10,
     width: 100,
     height: 50,
     resizeMode: 'cover',
