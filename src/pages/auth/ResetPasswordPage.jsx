@@ -2,7 +2,7 @@ import { Formik, useField } from "formik";
 import { Button, View, StyleSheet, ImageBackground, Alert } from "react-native";
 import StyledText from "../../components/input/StyledText";
 import StyledTextInput from "../../components/input/StyleTextInput";
-import { confirmEmailValidationSchema } from "../../validationSchemas/ConfirmEmailSchema";
+import { resetPasswordValidationSchema } from "../../validationSchemas/ResetPasswordSchema";
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from "@react-navigation/native";
 import { Auth } from "aws-amplify";
@@ -10,6 +10,7 @@ import { Auth } from "aws-amplify";
 const initialValues = {
     email: "",
     code: "",
+    password: ""
 };
 
 const FormikInputValue = ({ name, ...props }) => {
@@ -27,7 +28,7 @@ const FormikInputValue = ({ name, ...props }) => {
     );
 };
 
-export default function ConfirmEmailPage() {
+export default function ResetPasswordPage() {
     const route = useRoute();
     initialValues.email = route?.params?.email;
 
@@ -36,18 +37,10 @@ export default function ConfirmEmailPage() {
         navigation.navigate("Login")
     }
 
-    const onConfirmPresed = async (data) => {
+    const onResetPresed = async (data) => {
         try {
-            await Auth.confirmSignUp(data.email, data.code)
-            navigation.navigate("HomeScreen")
-        } catch (error) {
-            Alert.alert('Error', e.message)
-        }
-    }
-
-    const onResendPresed = async (data) => {
-        try {
-            await Auth.resendSignUp(data.email)
+            await Auth.forgotPasswordSubmit(data.email, data.code, data.password)
+            navigation.navigate("Login")
         } catch (error) {
             Alert.alert('Error', e.message)
         }
@@ -57,11 +50,11 @@ export default function ConfirmEmailPage() {
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
                 <View style={styles.containerForm}>
-                    <StyledText align='center' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>Confirme su correo</StyledText>
+                    <StyledText align='center' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>Recuperar contraseña</StyledText>
                     <Formik
-                        validationSchema={confirmEmailValidationSchema}
+                        validationSchema={resetPasswordValidationSchema}
                         initialValues={initialValues}
-                        onSubmit={(values) => onConfirmPresed(values)}
+                        onSubmit={(values) => onResetPresed(values)}
                     >
                         {({ handleSubmit }) => {
                             return (
@@ -71,18 +64,16 @@ export default function ConfirmEmailPage() {
                                         name="code"
                                         placeholder="Introduzca su código de confirmación"
                                     />
+                                    <FormikInputValue
+                                        name="password"
+                                        placeholder="Contraseña"
+                                        secureTextEntry
+                                    />
                                     <View style={styles.containerButtonConfirm}>
                                         <Button
                                             onPress={handleSubmit}
-                                            title="Confirmar"
+                                            title="Enviar"
                                             color="#0F8847"
-                                        />
-                                    </View>
-                                    <View>
-                                        <Button
-                                            onPress={handleSubmit}
-                                            title="Reenviar Código"
-                                            color="#000000"
                                         />
                                     </View>
                                     <View style={styles.containerBackSign}>

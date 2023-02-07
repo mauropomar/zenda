@@ -32,6 +32,11 @@ export default function LoginPage() {
   const onShowRegister = (event) => {
     navigation.navigate("Register")
   }
+
+  const onShowForgotPassword = (event) => {
+    navigation.navigate("ForgotPassword")
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
@@ -57,7 +62,7 @@ export default function LoginPage() {
                     placeholder="Contraseña"
                     secureTextEntry
                   />
-                  <StyledText color='primary' fontWeight='bold' style={styles.forgotPassword}>Olvidaste tu contraseña?</StyledText>
+                  <StyledText color='primary' fontWeight='bold' style={styles.forgotPassword} onPress={onShowForgotPassword}>Olvidaste tu contraseña?</StyledText>
                   <Button
                     onPress={handleSubmit}
                     title="Ingresar"

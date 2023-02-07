@@ -5,6 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import StackScreen from '../pages/screen/StackScreen';
 import LoginPage from '../pages/auth/LoginPage';
 import RegisterPage from '../pages/auth/RegisterPage';
+import ForgotPasswordPage from '../pages/auth/ForgotPasswordPage';
+import ResetPasswordPage from '../pages/auth/ResetPasswordPage';
 import ConfirmEmailPage from '../pages/auth/ConfirmEmailPage';
 import SplashPage from '../pages/splash/SplashPage';
 import HomeNavigation from './HomeNavigation';
@@ -45,6 +47,20 @@ function MainStack() {
                  <Stack.Screen
                     name="ConfirmEmail"
                     component={ConfirmEmailPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="ForgotPassword"
+                    component={ForgotPasswordPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="ResetPassword"
+                    component={ResetPasswordPage}
                     options={{
                         headerShown: false
                     }}

@@ -2,15 +2,14 @@ import { Formik, useField } from "formik";
 import { Button, View, StyleSheet, ImageBackground, Alert } from "react-native";
 import StyledText from "../../components/input/StyledText";
 import StyledTextInput from "../../components/input/StyleTextInput";
-import { confirmEmailValidationSchema } from "../../validationSchemas/ConfirmEmailSchema";
+import { forgotPasswordValidationSchema } from "../../validationSchemas/ForgotPasswordSchema";
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from "@react-navigation/native";
 import { Auth } from "aws-amplify";
 
 const initialValues = {
     email: "",
-    code: "",
-};
+  };
 
 const FormikInputValue = ({ name, ...props }) => {
     const [field, meta, helpers] = useField(name);
@@ -27,62 +26,42 @@ const FormikInputValue = ({ name, ...props }) => {
     );
 };
 
-export default function ConfirmEmailPage() {
-    const route = useRoute();
-    initialValues.email = route?.params?.email;
+export default function ForgotPasswordPage() {
 
     const navigation = useNavigation();
+
     const onShowLogin = () => {
         navigation.navigate("Login")
     }
 
-    const onConfirmPresed = async (data) => {
-        try {
-            await Auth.confirmSignUp(data.email, data.code)
-            navigation.navigate("HomeScreen")
+    const onSendPresed = async (data) => {
+        navigation.navigate("ResetPassword", { email: data.email });
+      /*  try {
+            await Auth.forgotPassword(data.email)
+            navigation.navigate("ResetPassword");
         } catch (error) {
             Alert.alert('Error', e.message)
-        }
+        }*/
     }
-
-    const onResendPresed = async (data) => {
-        try {
-            await Auth.resendSignUp(data.email)
-        } catch (error) {
-            Alert.alert('Error', e.message)
-        }
-    }
-
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
                 <View style={styles.containerForm}>
-                    <StyledText align='center' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>Confirme su correo</StyledText>
+                    <StyledText align='center' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>Recuperar contraseña</StyledText>
                     <Formik
-                        validationSchema={confirmEmailValidationSchema}
+                        validationSchema={forgotPasswordValidationSchema}
                         initialValues={initialValues}
-                        onSubmit={(values) => onConfirmPresed(values)}
+                        onSubmit={(values) => onSendPresed(values)}
                     >
                         {({ handleSubmit }) => {
                             return (
                                 <View style={styles.form}>
                                     <FormikInputValue name="email" placeholder="Correo electrónico" />
-                                    <FormikInputValue
-                                        name="code"
-                                        placeholder="Introduzca su código de confirmación"
-                                    />
-                                    <View style={styles.containerButtonConfirm}>
+                                    <View style={styles.containerButton}>
                                         <Button
                                             onPress={handleSubmit}
-                                            title="Confirmar"
+                                            title="Enviar"
                                             color="#0F8847"
-                                        />
-                                    </View>
-                                    <View>
-                                        <Button
-                                            onPress={handleSubmit}
-                                            title="Reenviar Código"
-                                            color="#000000"
                                         />
                                     </View>
                                     <View style={styles.containerBackSign}>
@@ -93,12 +72,10 @@ export default function ConfirmEmailPage() {
                         }}
                     </Formik>
                 </View>
-
             </ImageBackground>
         </View>
-    )
+    ) 
 }
-
 
 const styles = StyleSheet.create({
     container: {
@@ -115,7 +92,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'row'
     },
-    containerButtonConfirm: {
+    containerButton: {
         marginBottom: 10
     },
     textWelcome: {
