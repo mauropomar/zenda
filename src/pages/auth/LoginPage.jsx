@@ -20,6 +20,7 @@ const FormikInputValue = ({ name, ...props }) => {
         error={meta.error}
         value={field.value}
         onChangeText={(value) => helpers.setValue(value)}
+        style={styles.input}
         {...props}
       />
       {meta.error && <StyledText style={styles.error}>{meta.error}</StyledText>}
@@ -101,12 +102,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row'
   },
-  error: {
-    color: "red",
-    fontSize: 12,
-    marginBottom: 20,
-    marginTop: -5,
-  },
   form: {
     margin: 12,
     justifyContent: 'center',
@@ -125,12 +120,22 @@ const styles = StyleSheet.create({
   textWelcome: {
     fontSize: 24,
     marginTop: 60,
-    marginLeft:12,
+    marginLeft: 12,
     marginBottom: 20
   },
   forgotPassword: {
     fontSize: 15,
     alignSelf: 'flex-end',
     marginBottom: 40
+  },
+  input: {
+    borderColor: '#000000',
+    borderWidth: 1,
+  },
+  error: {
+    color: "red",
+    fontSize: 12,
+    marginBottom: 20,
+    marginTop: -5,
   }
 });
