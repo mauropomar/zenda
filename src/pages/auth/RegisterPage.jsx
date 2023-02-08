@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     },
     textWelcome: {
         fontSize: 24,
-        marginTop: 60,
+        marginTop: 80,
         marginLeft: 12,
         marginBottom: 20
     },

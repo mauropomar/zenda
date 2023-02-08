@@ -20,7 +20,7 @@ function MainStack() {
                 initialRouteName='Splash'
             >
                 <Stack.Screen
-                    name="HomeScreen"
+                    name="Home"
                     component={HomeNavigation}
                     options={{
                         headerShown: false
