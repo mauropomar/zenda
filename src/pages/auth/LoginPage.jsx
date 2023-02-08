@@ -38,6 +38,10 @@ export default function LoginPage() {
     navigation.navigate("ForgotPassword")
   }
 
+  const onLoginPress = (event) => {
+    navigation.navigate("HomeScreen")
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
@@ -52,7 +56,7 @@ export default function LoginPage() {
           <Formik
             validationSchema={loginValidationSchema}
             initialValues={initialValues}
-            onSubmit={(values) => console.log(values)}
+            onSubmit={(values) => onLoginPress(values)}
           >
             {({ handleSubmit }) => {
               return (

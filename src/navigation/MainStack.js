@@ -22,6 +22,9 @@ function MainStack() {
                 <Stack.Screen
                     name="HomeScreen"
                     component={HomeNavigation}
+                    options={{
+                        headerShown: false
+                    }}
                 />
                 <Stack.Screen
                     name="Login"

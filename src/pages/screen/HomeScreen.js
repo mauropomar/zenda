@@ -1,17 +1,12 @@
 import React from "react";
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
 const HomeScreen = ()=>{
-  const navigation = useNavigation();
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.touch}
-               onPress={()=> navigation.navigate("Stack")}
-            >
-             <Text style={styles.button}>Go To Slack Screen</Text>
-            </TouchableOpacity>
+             <Text>Home</Text>
         </View>
     )
 }
