@@ -70,7 +70,7 @@ export default function LoginPage() {
                   />
                   <View style={styles.containerRegister}>
                     <StyledText color='black' fontWeight='bold'>No tenés cuenta?</StyledText>
-                    <StyledText color='primary' fontWeight='bold' onPress={onShowRegister} style={styles.hyperlinkRegister}> Registrate</StyledText>
+                    <StyledText color='primary' fontWeight='bold' onPress={onShowRegister}> Registrate</StyledText>
                   </View>
                 </View>
               );
@@ -89,7 +89,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   containerForm: {
-    top: '20%',
     justifyContent: 'center',
   },
   containerImage: {
@@ -125,15 +124,13 @@ const styles = StyleSheet.create({
   },
   textWelcome: {
     fontSize: 24,
-    marginLeft:10,
-    marginBottom: 30
+    marginTop: 60,
+    marginLeft:12,
+    marginBottom: 20
   },
   forgotPassword: {
     fontSize: 15,
     alignSelf: 'flex-end',
     marginBottom: 40
-  },
-  hyperlinkRegister: {
-    cursor: 'pointer'
   }
 });

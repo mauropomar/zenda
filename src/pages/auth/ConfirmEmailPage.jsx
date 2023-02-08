@@ -1,5 +1,5 @@
 import { Formik, useField } from "formik";
-import { Button, View, StyleSheet, ImageBackground, Alert } from "react-native";
+import { Button, View, StyleSheet, ImageBackground, Alert, Image } from "react-native";
 import StyledText from "../../components/input/StyledText";
 import StyledTextInput from "../../components/input/StyleTextInput";
 import { confirmEmailValidationSchema } from "../../validationSchemas/ConfirmEmailSchema";
@@ -55,9 +55,15 @@ export default function ConfirmEmailPage() {
 
     return (
         <View style={styles.container}>
-            <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
-                <View style={styles.containerForm}>
-                    <StyledText align='center' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>Confirme su correo</StyledText>
+             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
+             <View style={styles.containerImage}>
+                    <Image
+                        style={styles.logo}
+                        source={require('../../../assets/images/logo_header.png')}
+                    />
+                </View>
+               <View style={styles.containerForm}>
+                    <StyledText align='left' fontWeight='bold' fontSize='heading' color="black" style={styles.textWelcome}>Confirme su correo</StyledText>
                     <Formik
                         validationSchema={confirmEmailValidationSchema}
                         initialValues={initialValues}
@@ -106,7 +112,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     containerForm: {
-        top: '40%',
         justifyContent: 'center',
     },
     containerBackSign: {
@@ -118,8 +123,14 @@ const styles = StyleSheet.create({
     containerButtonConfirm: {
         marginBottom: 10
     },
+    containerImage: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     textWelcome: {
         fontSize: 24,
+        marginTop: 60,
+        marginLeft: 12,
         marginBottom: 30
     },
     form: {
@@ -127,8 +138,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     image: {
-        flex: 1,
-        height: '50%',
+        flex: 1
+    },
+    logo: {
+        top: 10,
+        width: 100,
+        height: 50,
+        resizeMode: 'cover',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     error: {
         color: "red",

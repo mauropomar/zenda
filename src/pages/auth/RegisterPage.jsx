@@ -65,9 +65,8 @@ export default function RegisterPage() {
                     />
                 </View>
                 <View style={styles.containerForm}>
-                    <View style={styles.containerWelcome}>
-                        <StyledText color='black' align='left' fontWeight='bold' style={styles.textWelcome}>Crea una cuenta</StyledText>
-                    </View>
+                    <StyledText color='black' align='left' fontWeight='bold' style={styles.textWelcome}>Crea una cuenta</StyledText>
+
                     <Formik
                         validationSchema={registerValidationSchema}
                         initialValues={initialValues}
@@ -121,10 +120,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    containerWelcome: {
-        marginTop: 60,
-        marginBottom: 20
-    },
     containerSesion: {
         marginTop: 20,
         alignItems: 'center',
@@ -148,7 +143,9 @@ const styles = StyleSheet.create({
     },
     textWelcome: {
         fontSize: 24,
-        marginLeft:10
+        marginTop: 60,
+        marginLeft: 12,
+        marginBottom: 20
     },
     textSesion: {
         fontSize: 16,
