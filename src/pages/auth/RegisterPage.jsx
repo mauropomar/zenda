@@ -1,9 +1,11 @@
 import React from "react";
 import { Formik, useField } from "formik";
-import { Button, View, StyleSheet, ImageBackground, Image, Alert } from "react-native";
+import { Button, View, StyleSheet, ImageBackground, Image, Alert, TouchableOpacity } from "react-native";
 import StyledTextInput from "../../components/input/StyleTextInput";
-import { registerValidationSchema } from "../../validationSchemas/RegisterSchema";
+import HeaderTitle from "../../components/header/HeaderTitle";
 import StyledText from "../../components/input/StyledText";
+import { registerValidationSchema } from "../../validationSchemas/RegisterSchema";
+
 import { useNavigation } from '@react-navigation/native';
 import { Auth } from "aws-amplify";
 
@@ -34,7 +36,7 @@ const FormikInputValue = ({ name, ...props }) => {
 export default function RegisterPage() {
     const navigation = useNavigation();
 
-    const onShowLogin = (event) => {
+    const onBack = (event) => {
         navigation.navigate("Login")
     }
 
@@ -59,15 +61,8 @@ export default function RegisterPage() {
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
-                <View style={styles.containerImage}>
-                    <Image
-                        style={styles.logo}
-                        source={require('../../../assets/images/logo_header.png')}
-                    />
-                </View>
+                <HeaderTitle title="Crea una cuenta"/>
                 <View style={styles.containerForm}>
-                    <StyledText color='black' align='left' fontWeight='bold' style={styles.textWelcome}>Crea una cuenta</StyledText>
-
                     <Formik
                         validationSchema={registerValidationSchema}
                         initialValues={initialValues}
@@ -94,10 +89,6 @@ export default function RegisterPage() {
                                         title="Aceptar"
                                         color="#0F8847"
                                     />
-                                    <View style={styles.containerSesion}>
-                                        <StyledText color='blackLight' fontWeight='bold' >Ya eres usuario?</StyledText>
-                                        <StyledText color='primary' fontWeight='bold' onPress={onShowLogin}> Iniciar sesión</StyledText>
-                                    </View>
                                 </View>
 
                             );
@@ -116,15 +107,12 @@ const styles = StyleSheet.create({
     },
     containerForm: {
         justifyContent: 'center',
+        marginTop: 50
     },
-    containerImage: {
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    containerSesion: {
-        marginTop: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
+    containerHeader: {
+        paddingTop: 40,
+        marginLeft: 10,
+        justifyContent: 'flex-start',
         flexDirection: 'row'
     },
     form: {
@@ -134,24 +122,22 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
     },
-    logo: {
-        top: 10,
-        width: 100,
-        height: 50,
+    arrow: {
+        width: 20,
+        height: 20,
+        marginTop: 8,
+        marginRight: 10,
         resizeMode: 'cover',
         alignItems: 'center',
-        justifyContent: 'center',
     },
     textWelcome: {
+        color: '#FFFFFF',
         fontSize: 24,
-        marginTop: 80,
-        marginLeft: 12,
-        marginBottom: 20
     },
     textSesion: {
         fontSize: 16,
     },
-    input:{
+    input: {
         borderColor: '#000000',
         borderWidth: 1,
     },

@@ -3,6 +3,7 @@ import { Button, View, StyleSheet, ImageBackground, Image, Alert } from "react-n
 import StyledText from "../../components/input/StyledText";
 import StyledTextInput from "../../components/input/StyleTextInput";
 import { forgotPasswordValidationSchema } from "../../validationSchemas/ForgotPasswordSchema";
+import HeaderTitle from "../../components/header/HeaderTitle";
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from "@react-navigation/native";
 import { Auth } from "aws-amplify";
@@ -31,10 +32,6 @@ export default function ForgotPasswordPage() {
 
     const navigation = useNavigation();
 
-    const onShowLogin = () => {
-        navigation.navigate("Login")
-    }
-
     const onSendPresed = async (data) => {
         navigation.navigate("ResetPassword", { email: data.email });
         /*  try {
@@ -47,15 +44,9 @@ export default function ForgotPasswordPage() {
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
-                <View style={styles.containerImage}>
-                    <Image
-                        style={styles.logo}
-                        source={require('../../../assets/images/logo_header.png')}
-                    />
-                </View>
+              <HeaderTitle title="Olvide mi contraseña"/>
                 <View style={styles.containerForm}>
-                    <StyledText align='left' fontWeight='bold' fontSize='heading' color="black" style={styles.textWelcome}>Recuperar contraseña</StyledText>
-                    <Formik
+                     <Formik
                         validationSchema={forgotPasswordValidationSchema}
                         initialValues={initialValues}
                         onSubmit={(values) => onSendPresed(values)}
@@ -70,9 +61,6 @@ export default function ForgotPasswordPage() {
                                             title="Enviar"
                                             color="#0F8847"
                                         />
-                                    </View>
-                                    <View style={styles.containerBackSign}>
-                                        <StyledText color='black' fontWeight='bold' onPress={onShowLogin}>Volver para iniciar sesión</StyledText>
                                     </View>
                                 </View>
                             );
@@ -90,14 +78,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     containerForm: {
-        top: '10%',
+        marginTop: 50,
         justifyContent: 'center',
-    },
-    containerBackSign: {
-        marginTop: 30,
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row'
     },
     containerImage: {
         alignItems: 'center',
@@ -106,25 +88,12 @@ const styles = StyleSheet.create({
     containerButton: {
         marginBottom: 10
     },
-    textWelcome: {
-        fontSize: 24,
-        marginBottom: 30,
-        marginLeft: 12
-    },
     form: {
         margin: 12,
         justifyContent: 'center',
     },
     image: {
         flex: 1
-    },
-    logo: {
-        top: 10,
-        width: 100,
-        height: 50,
-        resizeMode: 'cover',
-        alignItems: 'center',
-        justifyContent: 'center',
     },
     input:{
         borderColor: '#000000',

@@ -2,6 +2,7 @@ import { Formik, useField } from "formik";
 import { Button, View, StyleSheet, ImageBackground, Alert, Image } from "react-native";
 import StyledText from "../../components/input/StyledText";
 import StyledTextInput from "../../components/input/StyleTextInput";
+import HeaderTitle from "../../components/header/HeaderTitle";
 import { resetPasswordValidationSchema } from "../../validationSchemas/ResetPasswordSchema";
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from "@react-navigation/native";
@@ -50,14 +51,8 @@ export default function ResetPasswordPage() {
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
-                <View style={styles.containerImage}>
-                    <Image
-                        style={styles.logo}
-                        source={require('../../../assets/images/logo_header.png')}
-                    />
-                </View>
+              <HeaderTitle title="Olvide mi contraseña"/>
                 <View style={styles.containerForm}>
-                    <StyledText align='left' fontWeight='bold' fontSize='heading' color="black" style={styles.textWelcome}>Recuperar contraseña</StyledText>
                     <Formik
                         validationSchema={resetPasswordValidationSchema}
                         initialValues={initialValues}
@@ -79,7 +74,7 @@ export default function ResetPasswordPage() {
                                     <View style={styles.containerButtonConfirm}>
                                         <Button
                                             onPress={handleSubmit}
-                                            title="Enviar"
+                                            title="Enviar código de recuperación"
                                             color="#0F8847"
                                         />
                                     </View>
@@ -104,10 +99,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     containerForm: {
+        marginTop: 50,
         justifyContent: 'center',
     },
     containerBackSign: {
-        marginTop: 30,
+        marginTop: 20,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row'
@@ -119,26 +115,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    textWelcome: {
-        fontSize: 24,
-        marginTop: 80,
-        marginLeft: 12,
-        marginBottom: 30
-    },
     form: {
         margin: 12,
         justifyContent: 'center',
     },
     image: {
         flex: 1
-    },
-    logo: {
-        top: 10,
-        width: 100,
-        height: 50,
-        resizeMode: 'cover',
-        alignItems: 'center',
-        justifyContent: 'center',
     },
     input:{
         borderColor: '#000000',
