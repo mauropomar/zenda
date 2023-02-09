@@ -109,12 +109,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: 50
     },
-    containerHeader: {
-        paddingTop: 40,
-        marginLeft: 10,
-        justifyContent: 'flex-start',
-        flexDirection: 'row'
-    },
     form: {
         margin: 12,
         justifyContent: 'center',

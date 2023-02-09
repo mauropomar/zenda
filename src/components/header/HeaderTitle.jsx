@@ -8,7 +8,7 @@ export default function HeaderTitle({title}) {
         navigation.goBack()
     }
     return (
-        <View style={styles.containerHeader}>
+        <View style={styles.container}>
             <TouchableOpacity
                 onPress={() => onBack()}
                 accessibilityRole="button"
@@ -18,14 +18,14 @@ export default function HeaderTitle({title}) {
                     source={require('../../../assets/images/arrow-back.png')}
                 />
             </TouchableOpacity>
-            <StyledText align='left' fontWeight='bold' style={styles.textWelcome}>{title}</StyledText>
+            <StyledText align='left' fontWeight='bold' style={styles.textHeader}>{title}</StyledText>
         </View>
     )
 }
 
 
 const styles = StyleSheet.create({
-    containerHeader: {
+    container: {
         paddingTop: 40,
         marginLeft: 10,
         justifyContent: 'flex-start',
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',
         alignItems: 'center',
     },
-    textWelcome: {
+    textHeader: {
         color: '#FFFFFF',
         fontSize: 24,
     }
