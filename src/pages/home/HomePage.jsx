@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, View, StyleSheet, ImageBackground, Image, Text } from "react-native";
 import HeaderPrincipal from "../../components/header/HeaderPrincipal";
+import CardHome from "../../components/home/CardHome"
 
 
 export default function HomePage() {
@@ -8,6 +9,7 @@ export default function HomePage() {
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
                 <HeaderPrincipal username="Luisa Jimenez"/>
+                <CardHome/>
             </ImageBackground>
         </View>
     )
@@ -16,11 +18,6 @@ export default function HomePage() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-    },
-    containerImage: {
-        alignItems: 'center',
-        justifyContent: 'center',
     },
     image: {
         flex: 1,

@@ -1,4 +1,4 @@
-import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import DateUtil from "../../utils/date";
 import StyledText from "../input/StyledText";
 

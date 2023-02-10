@@ -74,6 +74,7 @@ export default function RegisterPage() {
                                     <FormikInputValue name="name" placeholder="Nombre" />
                                     <FormikInputValue name="lastName" placeholder="Apellidos" />
                                     <FormikInputValue name="email" placeholder="Correo electrónico" />
+                                    <FormikInputValue name="phoneNumber" placeholder="Teléfono" />
                                     <FormikInputValue
                                         name="password"
                                         placeholder="Contraseña"
