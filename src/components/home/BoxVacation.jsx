@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import StyledText from "../input/StyledText";
 
 export default function BoxVacation({ isVacation, daysNumber }) {
@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: 5,
         marginLeft: 10
-
     },
     textDaysNumber: {
         fontSize: 24,
@@ -48,7 +47,7 @@ const styles = StyleSheet.create({
     },
     textDays: {
         fontSize: 10,
-        marginTop: 13
+        marginTop: 15
     },
     text: {
         fontSize: 24
