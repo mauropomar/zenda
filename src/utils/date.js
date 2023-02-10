@@ -21,7 +21,28 @@ const DateUtil = {
         const monthIndex = d.getMonth()
         const monthName = months[d.getMonth()]
         const dayName = days[d.getDay()] // Thu
-        const formatted = `${dayName}, ${date} de ${monthName}, ${year}`
+        const formatted = `${dayName}, ${date} de ${monthName}, ${year}`;
+        return formatted.toString()
+    },
+    formatDateDayMonth: function (newDate) {
+        const months = {
+            0: 'Enero',
+            1: 'Febrero',
+            2: 'Marzo',
+            3: 'April',
+            4: 'Mayo',
+            5: 'Junio',
+            6: 'Julio',
+            7: 'Agosto',
+            8: 'Septiembre',
+            9: 'Octubre',
+            10: 'Noviembre',
+            11: 'Diciembre',
+        }
+        const d = newDate
+        const date = d.getDate()
+        const monthName = months[d.getMonth()]
+        const formatted =  `${date} de ${monthName}`;
         return formatted.toString()
     }
 };
