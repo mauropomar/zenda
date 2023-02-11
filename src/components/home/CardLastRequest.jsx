@@ -8,7 +8,7 @@ import {
   import BoxLastRequest from './BoxLastRequest';
 
 const arr = [
-    {date:'2020-12-10', status: 'Rechazado', title:'Permisos'},
+    {date:'2020-12-10', status: 'Aprobado', title:'Permisos'},
     {date:'2022-01-11', status: 'En espera', title:'Vacaciones'},
     {date:'2023-01-11', status: 'Rechazado', title:'Anticipo'},
     {date:'2023-02-11', status: 'Aprobado', title:'Horas extras'},

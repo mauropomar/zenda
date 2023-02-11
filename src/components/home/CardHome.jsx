@@ -16,7 +16,7 @@ export default function CardHome() {
             </View>
             <StyledText align='left' fontWeight='bold' style={styles.titleRequest}>Últimas Solicitudes</StyledText>
             <View style={styles.sectionRequest}>            
-                <CardLastRequest />
+                <CardLastRequest/>
             </View>
         </View>
     )
