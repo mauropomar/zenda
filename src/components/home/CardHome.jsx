@@ -15,7 +15,7 @@ export default function CardHome() {
                 <BoxHoursWork daysNumber={20} />
             </View>
             <StyledText align='left' fontWeight='bold' style={styles.titleRequest}>Últimas Solicitudes</StyledText>
-            <View style={styles.section}>            
+            <View style={styles.sectionRequest}>            
                 <CardLastRequest />
             </View>
         </View>
@@ -31,6 +31,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         gap: 1,
         padding: 10,
+        justifyContent: 'space-around',
+    },
+    sectionRequest: {
+        flexDirection: 'row',
+        gap: 1,
+        paddingLeft: 10,
+        paddingRight: 10,
         justifyContent: 'space-around',
     },
     titleRequest:{

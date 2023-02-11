@@ -1,18 +1,31 @@
 import { View, StyleSheet } from "react-native";
 import StyledText from "../input/StyledText";
 import DateUtil from "../../utils/date";
+import StatusUtil from "../../utils/status";
+
 
 export default function BoxLastRequest({ elements }) {
     const { title, date, status } = elements;
     const dateStr = DateUtil.formatDateDayMonth(new Date(date));
+    const statusStyle = StatusUtil.getBackgroundRequest(status);
     return (
         <View style={styles.container}>
             <StyledText align='left' fontWeight='bold' style={styles.title}>{title}</StyledText>
             <StyledText align='left'>Pedido el</StyledText>
             <StyledText align='left' fontWeight='bold'>{dateStr}</StyledText>
             <StyledText align='left' style={styles.textEncabStatus}>Estado</StyledText>
-            <View style={styles.status}>
-                <StyledText align='left' style={styles.textStatus}>{status}</StyledText>
+            <View style={{
+                backgroundColor: statusStyle.backgroudColor,
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 10,
+                marginTop: 5,
+                width: 100,
+                height: 30
+            }}>
+                <StyledText align='left' style={{
+                    color: statusStyle.color
+                }}>{status}</StyledText>
             </View>
         </View>
     )
@@ -22,7 +35,6 @@ export default function BoxLastRequest({ elements }) {
 const styles = StyleSheet.create({
     container: {
         width: '45%',
-        alignItems: 'center',
         backgroundColor: '#FBFCFC',
         shadowColor: 'black',
         shadowOpacity: 0.2,
@@ -44,9 +56,9 @@ const styles = StyleSheet.create({
         height: 30
     },
     textEncabStatus: {
-        marginBottom: 5
+        marginTop: 10
     },
     textStatus: {
-        color: '#FFFFFF'
+        color: '#FFFFFF',
     }
 });
