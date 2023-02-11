@@ -1,9 +1,6 @@
 import {
     SafeAreaView,
-    StyleSheet,
-    View,
-    FlatList,
-    Image
+    FlatList
   } from 'react-native';
   import BoxLastRequest from './BoxLastRequest';
 

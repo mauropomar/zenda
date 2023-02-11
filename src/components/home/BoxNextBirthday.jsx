@@ -1,0 +1,38 @@
+import { View, StyleSheet, Image } from "react-native";
+import StyledText from "../input/StyledText";
+import DateUtil from "../../utils/date";
+
+export default function BoxNextBirthDay({ elements }) {
+    const { name, url, date } = elements;
+    const dateStr = DateUtil.formatDateDayMonth(new Date(date));
+    return (
+        <View style={styles.container}>
+            <Image style={styles.image}
+                source={require('../../../assets/images/user_empty.png')} />
+            <StyledText align='left' fontWeight='bold'>{name}</StyledText>
+            <StyledText align='left' fontWeight='bold'>{dateStr}</StyledText>
+        </View>
+    )
+}
+
+const styles = StyleSheet.create({
+    container: {
+        width: 150,
+        backgroundColor: '#FBFCFC',
+        alignItems: 'center',
+        justifyContent: 'center',
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
+        borderRadius: 10,
+        elevation: 8,
+        margin: 10,
+        padding: 15
+    },
+    image: {
+        width: 70,
+        height: 70,
+        resizeMode: 'cover',
+        textAlign: 'center',
+        borderRadius: 30
+    }
+});

@@ -2,6 +2,7 @@ import { View, StyleSheet } from "react-native";
 import BoxVacation from "./BoxVacation";
 import BoxHoursWork from "./BoxHoursWorked";
 import CardLastRequest from "./CardLastRequest";
+import CardNextBirthDay from "./CardNextBirhday";
 import StyledText from "../input/StyledText";
 
 export default function CardHome() {
@@ -15,8 +16,12 @@ export default function CardHome() {
                 <BoxHoursWork daysNumber={20} />
             </View>
             <StyledText align='left' fontWeight='bold' style={styles.titleRequest}>Últimas Solicitudes</StyledText>
-            <View style={styles.sectionRequest}>            
-                <CardLastRequest/>
+            <View style={styles.sectionRequest}>
+                <CardLastRequest />
+            </View>
+            <StyledText align='left' fontWeight='bold' style={styles.titleRequest}>Próximos cumpleaños</StyledText>
+            <View style={styles.sectionRequest}>
+                    <CardNextBirthDay />
             </View>
         </View>
     )
@@ -40,8 +45,9 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         justifyContent: 'space-around',
     },
-    titleRequest:{
-        fontSize:20,
+    titleRequest: {
+        fontSize: 20,
+        marginTop: 20,
         marginLeft: 20
     }
 });
