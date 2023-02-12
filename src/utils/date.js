@@ -42,7 +42,7 @@ const DateUtil = {
         const d = newDate
         const date = d.getDate()
         const monthName = months[d.getMonth()]
-        const formatted =  `${date} de ${monthName}`;
+        const formatted =  `${date} ${monthName}`;
         return formatted.toString()
     }
 };

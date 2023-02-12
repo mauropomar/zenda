@@ -3,7 +3,7 @@ import StyledText from "../input/StyledText";
 import DateUtil from "../../utils/date";
 
 
-export default function BoxNextBirthDay({ elements }) {
+export default function BoxBirthDay({ elements }) {
     const { name, url, date } = elements;
     const dateStr = DateUtil.formatDateDayMonth(new Date(date));
     return (
@@ -18,7 +18,7 @@ export default function BoxNextBirthDay({ elements }) {
 
 const styles = StyleSheet.create({
     container: {
-        width: 150,
+        width: '28%',
         backgroundColor: '#FBFCFC',
         alignItems: 'center',
         justifyContent: 'center',

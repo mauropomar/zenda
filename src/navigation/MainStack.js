@@ -10,6 +10,7 @@ import ResetPasswordPage from '../pages/auth/ResetPasswordPage';
 import ConfirmEmailPage from '../pages/auth/ConfirmEmailPage';
 import SplashPage from '../pages/splash/SplashPage';
 import HomeNavigation from './HomeNavigation';
+import BirthDayPage from '../pages/birthday/BirthDayPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -73,6 +74,13 @@ function MainStack() {
                     component={StackScreen}
                     options={{
                         headerShown: true
+                    }}
+                />
+                <Stack.Screen
+                    name="BirthDay"
+                    component={BirthDayPage}
+                    options={{
+                        headerShown: false
                     }}
                 />
             </Stack.Navigator>

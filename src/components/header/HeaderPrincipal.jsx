@@ -14,7 +14,7 @@ export default function HeaderPrincipal({ username }) {
             <View>
                 <Image
                     style={styles.userPhoto}
-                    source={require('../../../assets/images/user_empty.png')}
+                    source={require('../../../assets/images/desing_girl.png')}
                 />
             </View>
         </View>
@@ -23,7 +23,7 @@ export default function HeaderPrincipal({ username }) {
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 40,
+        paddingTop: 30,
         marginLeft: 10,
         justifyContent: 'space-between',
         flexDirection: 'row'
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
         width: 70,
         height: 70,
         marginRight:15,
+        marginTop:-5,
         resizeMode: 'cover',
         textAlign: 'center'
     },
