@@ -1,10 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import StyledText from "./../components/input/StyledText";
 
 import HomePage from './../pages/home/HomePage';
+import SettlementPage from '../pages/settlement/SettlementPage';
 import AttendancePage from './../pages/attendance/AttendancePage';
 import DocumentPage from '../pages/document/DocumentPage';
 import OtherOptionPage from '../pages/other/OtherOptionPage';
@@ -53,10 +54,15 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
                             )}
                             {index === 1 && (
                                 <View style={styles.icon}>
-                                    {isFocused ? <Ionicons name="calendar" size={24} color={color} /> :
-                                        <Ionicons name="calendar-outline" size={24} color={color} />}
-                                    <StyledText style={styles.text}>Asistencia</StyledText>
+                                    {isFocused ? <MaterialIcons name="attach-money" size={24} color={color} /> :
+                                        <MaterialIcons name="attach-money" size={24} color={color} />}
+                                    <StyledText style={styles.text}>Liquidación</StyledText>
                                 </View>
+                                /* <View style={styles.icon}>
+                                     {isFocused ? <Ionicons name="calendar" size={24} color={color} /> :
+                                         <Ionicons name="calendar-outline" size={24} color={color} />}
+                                     <StyledText style={styles.text}>Asistencia</StyledText>
+                                 </View>*/
                             )}
                             {index === 2 && (
                                 <View style={styles.icon}>
@@ -106,7 +112,7 @@ function HomeNavigation() {
             ></Tab.Screen>
             <Tab.Screen
                 name="Attendance"
-                component={AttendancePage}
+                component={SettlementPage}
                 options={{
                     headerShown: false
                 }}

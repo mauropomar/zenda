@@ -2,7 +2,6 @@ import React from "react";
 import { View, StyleSheet, ImageBackground, Image, SafeAreaView, FlatList, ScrollView } from 'react-native';
 import BoxBirthDay from '../../components/birthday/BoxBirthday';
 import HeaderTitle from "../../components/header/HeaderTitle";
-import StyledText from "../../components/input/StyledText";
 
 const arr = [
     { date: '2020-12-10', name: 'Jaime', url: require('../../../assets/images/user2.png') },

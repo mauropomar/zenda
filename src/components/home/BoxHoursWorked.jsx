@@ -13,7 +13,7 @@ export default function BoxHoursWork({ daysNumber }) {
             <View style={styles.containerFooter}>
                 <View style={styles.containerDays}>
                     <StyledText align='left' fontWeight='bold' style={styles.textDaysNumber}>{daysNumber}</StyledText>
-                    <StyledText align='left' style={styles.textDays}>Días</StyledText>
+                    <StyledText align='left' style={styles.textHours}>Hora(s)</StyledText>
                 </View>
                 <View style={styles.containerSeeMore}>
                     <StyledText align='left'>Ver más</StyledText>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         marginRight: 5
     },
-    textDays: {
+    textHours: {
         fontSize: 10,
         marginTop: 15
     },
