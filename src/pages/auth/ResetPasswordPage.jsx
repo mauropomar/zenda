@@ -40,19 +40,20 @@ export default function ResetPasswordPage() {
     }
 
     const onResetPresed = async (data) => {
-        try {
+      /*  try {
             await Auth.forgotPasswordSubmit(data.email, data.code, data.password)
             navigation.navigate("Login")
         } catch (error) {
             Alert.alert('Error', e.message)
-        }
+        }*/
     }
 
     return (
         <View style={styles.container}>
-            <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
-              <HeaderTitle title="Olvide mi contraseña"/>
+            <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
                 <View style={styles.containerForm}>
+                <StyledText align='center' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>Olvide mi contraseña</StyledText>
+                 
                     <Formik
                         validationSchema={resetPasswordValidationSchema}
                         initialValues={initialValues}
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     containerForm: {
-        marginTop: 50,
+        top: '40%',
         justifyContent: 'center',
     },
     containerBackSign: {
@@ -119,12 +120,16 @@ const styles = StyleSheet.create({
         margin: 12,
         justifyContent: 'center',
     },
-    image: {
-        flex: 1
+    textWelcome: {
+        fontSize: 24,
+        marginBottom: 30
     },
-    input:{
-        borderColor: '#000000',
-        borderWidth: 1,
+    image: {
+        flex: 1,
+        height: '50%',
+    },
+    input: {
+        backgroundColor: '#DDEEDD'
     },
     error: {
         color: "red",
