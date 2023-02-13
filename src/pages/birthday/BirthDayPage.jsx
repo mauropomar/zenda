@@ -34,7 +34,7 @@ export default function BirthDayPage() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     view:{
        marginTop: 10

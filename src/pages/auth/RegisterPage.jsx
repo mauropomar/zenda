@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     },
     containerForm: {
         justifyContent: 'center',
-        marginTop: 50
+        marginTop: 30
     },
     form: {
         margin: 12,

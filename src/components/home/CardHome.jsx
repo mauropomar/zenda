@@ -9,7 +9,6 @@ import StyledText from "../input/StyledText";
 export default function CardHome() {
     const navigation = useNavigation();
     const onShowBirthDayPage = () => {
-        console.log('lo hizo')
         navigation.navigate("BirthDay")
     }
     return (

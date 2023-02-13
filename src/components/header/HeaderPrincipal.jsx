@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     container: {
         paddingTop: 30,
         marginLeft: 10,
+        paddingBottom: 15,
         justifyContent: 'space-between',
         flexDirection: 'row'
     },
@@ -35,10 +36,6 @@ const styles = StyleSheet.create({
         marginRight: 10,
         resizeMode: 'cover',
         alignItems: 'center',
-    },
-    textWelcome: {
-        color: '#FFFFFF',
-        fontSize: 24,
     },
     textWelcome: {
         color: '#FFFFFF',
@@ -55,7 +52,7 @@ const styles = StyleSheet.create({
         marginTop:-5,
         resizeMode: 'cover',
         textAlign: 'center'
-    },
+    }
 });
 
 

@@ -42,9 +42,16 @@ const DateUtil = {
         const d = newDate
         const date = d.getDate()
         const monthName = months[d.getMonth()]
-        const formatted =  `${date} ${monthName}`;
+        const formatted = `${date} ${monthName}`;
         return formatted.toString()
-    }
+    },
+    convertToPeriodo: function (newDate) {
+        const date = new Date(newDate);
+        const month = date.getMonth() < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+        const year = date.getFullYear();
+        const formatted = `${month}/${year}`;
+        return formatted;
+    },
 };
 
 export default DateUtil;
