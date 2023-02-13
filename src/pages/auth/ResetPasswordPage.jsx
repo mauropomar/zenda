@@ -40,20 +40,20 @@ export default function ResetPasswordPage() {
     }
 
     const onResetPresed = async (data) => {
-      /*  try {
-            await Auth.forgotPasswordSubmit(data.email, data.code, data.password)
-            navigation.navigate("Login")
-        } catch (error) {
-            Alert.alert('Error', e.message)
-        }*/
+        /*  try {
+              await Auth.forgotPasswordSubmit(data.email, data.code, data.password)
+              navigation.navigate("Login")
+          } catch (error) {
+              Alert.alert('Error', e.message)
+          }*/
     }
 
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
                 <View style={styles.containerForm}>
-                <StyledText align='center' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>Olvide mi contraseña</StyledText>
-                 
+                    <StyledText align='center' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>Olvide mi contraseña</StyledText>
+
                     <Formik
                         validationSchema={resetPasswordValidationSchema}
                         initialValues={initialValues}

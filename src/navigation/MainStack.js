@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 
 import StackScreen from '../pages/screen/StackScreen';
+import IntroPage from '../pages/auth/IntroPage';
 import LoginPage from '../pages/auth/LoginPage';
 import RegisterPage from '../pages/auth/RegisterPage';
 import ForgotPasswordPage from '../pages/auth/ForgotPasswordPage';
@@ -18,11 +19,18 @@ function MainStack() {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName='Splash'
+                initialRouteName='Intro'
             >
                 <Stack.Screen
                     name="Home"
                     component={HomeNavigation}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="Intro"
+                    component={IntroPage}
                     options={{
                         headerShown: false
                     }}
