@@ -5,8 +5,8 @@ export default function BoxVacation({ isVacation, daysNumber }) {
     return (
         <View style={styles.container}>
             <View style={styles.icon}>
-                {isVacation ? <Image source={require('../../../assets/images/beach_vacation.png')} /> :
-                    <Image source={require('../../../assets/images/medicaments.png')} />}
+                {isVacation ? <Image source={require('../../../assets/icons/beach_vacation.png')} /> :
+                    <Image source={require('../../../assets/icons/medicaments.png')} />}
             </View>
             <View style={styles.containerText}>
                 <StyledText align='left' fontWeight='bold'>Vacaciones</StyledText>

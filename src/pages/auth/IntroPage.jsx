@@ -39,10 +39,9 @@ export default function IntroPage() {
     const renderSlider = ({ item }) => {
         return (
             <View style={styles.slide}>
-                <Image source={item.image} />               
+                <Image source={item.image} />
                 <StyledText align='center' fontWeight='bold' fontSize='heading' color="black" style={styles.title}>{item.title}</StyledText>
                 <StyledText align='center' fontSize='heading' color="black" style={styles.description}>{item.text}</StyledText>
-                
             </View>
         );
     }
@@ -58,12 +57,12 @@ export default function IntroPage() {
                 prevLabel="Anterior"
             />
             <View style={styles.button}>
-                    <Button
-                        onPress={onShowLogin}
-                        title="Iniciar Sesión"
-                        color="#0F8847"
-                    />
-                </View>
+                <Button
+                    onPress={onShowLogin}
+                    title="Iniciar Sesión"
+                    color="#0F8847"
+                />
+            </View>
         </View>
     )
 }
@@ -71,16 +70,12 @@ export default function IntroPage() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        
     },
     slide: {
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#F1F4F5',
-        borderRadius:20,
-        flex: 1
+        borderRadius: 20,
     },
     title: {
         marginTop: 20,
@@ -105,5 +100,4 @@ const styles = StyleSheet.create({
     activeTab: {
         backgroundColor: '#0F8847'
     }
-
 });

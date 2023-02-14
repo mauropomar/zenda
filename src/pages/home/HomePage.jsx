@@ -1,7 +1,8 @@
 import React from "react";
 import { View, StyleSheet, ImageBackground, ScrollView } from "react-native";
 import HeaderPrincipal from "../../components/header/HeaderPrincipal";
-import CardHome from "../../components/home/CardHome"
+import CardHome from "../../components/home/CardHome";
+import ModalMenuOption from "../../components/modal/ModalMenuOption";
 
 
 export default function HomePage() {
@@ -11,6 +12,7 @@ export default function HomePage() {
                 <HeaderPrincipal username="Luisa Jimenez" />
                 <ScrollView>
                     <CardHome />
+                    <ModalMenuOption />
                 </ScrollView>
             </ImageBackground>
         </View>

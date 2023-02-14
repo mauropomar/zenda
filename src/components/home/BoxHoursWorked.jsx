@@ -5,7 +5,7 @@ export default function BoxHoursWork({ daysNumber }) {
     return (
         <View style={styles.container}>
             <View style={styles.icon}>
-                <Image source={require('../../../assets/images/clock_outline.png')} />
+                <Image source={require('../../../assets/icons/clock_outline.png')} />
             </View>
             <View style={styles.containerText}>
                 <StyledText align='left' fontWeight='bold'>Horas Trabajadas (Hoy)</StyledText>
