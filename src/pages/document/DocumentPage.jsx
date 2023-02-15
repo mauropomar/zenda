@@ -1,52 +1,41 @@
-import React from 'react';
-import {
-    SafeAreaView,
-    StyleSheet,
-    StatusBar,
-    Text,
-    TouchableWithoutFeedback
-} from 'react-native';
-import { ModalMessage } from '../../components/modal/ModalMessage';
+import React from "react";
+import { View, StyleSheet, ImageBackground, Image, SafeAreaView, FlatList, ScrollView } from 'react-native';
+import BoxFolder from '../../components/document/BoxFolder';
+import HeaderTitle from "../../components/header/HeaderTitle";
 
+const arr = [
+    { id: 1, name: 'Mis Documentos' },
+    { id: 2, name: 'Documentos pendientes por aprobar' }
+]
 
 export default function DocumentPage() {
-    let popupRef = React.createRef();
-
-    const onShowPopup = () => {
-        popupRef.show();
-    }
-
-    const onClosePopup = () => {
-        popupRef.close();
-    }
-
     return (
-        <>
-            <StatusBar barStyle='dark-content' />
-            <SafeAreaView style={styles.container}>
-                <TouchableWithoutFeedback onPress={onShowPopup}>
-                    <Text style={styles.txtSize}>Show Popup</Text>
-                </TouchableWithoutFeedback>
-                <ModalMessage
-                    title="Solicitud Enviada"
-                    message="La solicitud de anticipo fue enviada con éxito"
-                    type="success"
-                    ref={(target) => popupRef = target}
-                    onTouchOutside={onClosePopup}
-                >
-                </ModalMessage>
-            </SafeAreaView>
-        </>
+        <View style={styles.container}>
+            <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
+                <HeaderTitle title="Documentos" />
+                <SafeAreaView style={styles.view}>
+                    <FlatList
+                        numColumns={2}
+                        data={arr}
+                        keyExtractor={(item, index) => index.toString()}
+                        renderItem={({ item }) => (<BoxFolder elements={item} />)}
+                    >
+                    </FlatList>
+                </SafeAreaView>
+            </ImageBackground>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
     },
-    txtSize: {
-        fontSize: 20
+    image: {
+        flex: 1,
+        height: '115%'
+    },
+    view: {
+        marginTop: 10
     }
 });
