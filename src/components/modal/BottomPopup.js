@@ -2,6 +2,33 @@ import React from 'react';
 import { Modal, Dimensions, TouchableWithoutFeedback, StyleSheet, View, Text, FlatList, Image } from 'react-native'
 import StyledText from '../input/StyledText';
 
+const data = [
+    {
+        id: '1',
+        title: 'Anticipos',
+        description: 'Pide tu anticipo segun fechas estimadas',
+        icon: require('../../../assets/icons/advance_money.png')
+    },
+    {
+        id: '2',
+        title: 'Vacaciones',
+        description: 'Pide tus vacaciones a feriados legales',
+        icon: require('../../../assets/icons/beach_vacation.png')
+    },
+    {
+        id: '3',
+        title: 'Permisos Administrativos',
+        description: 'Pide tus permisos segun lo que necesites',
+        icon: require('../../../assets/icons/time_date.png')
+    },
+    {
+        id: '4',
+        title: 'Evaluación',
+        description: 'Evaluá a tu área o a compañeros de trabajo',
+        icon: require('../../../assets/icons/evaluation.png')
+    },
+];
+
 const deviceHeight = Dimensions.get('window').height;
 export class BottomPopup extends React.Component {
     constructor(props) {
@@ -50,7 +77,6 @@ export class BottomPopup extends React.Component {
     }
 
     renderContent = () => {
-        const { data } = this.props;
         return (
             <View>
                 <FlatList

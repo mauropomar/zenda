@@ -12,32 +12,7 @@ import DocumentPage from '../pages/document/DocumentPage';
 import OtherOptionPage from '../pages/other/OtherOptionPage';
 import { BottomPopup } from '../components/modal/BottomPopup'
 
-const popupList = [
-    {
-        id: '1',
-        title: 'Anticipos',
-        description: 'Pide tu anticipo segun fechas estimadas',
-        icon: require('../../assets/icons/advance_money.png')
-    },
-    {
-        id: '2',
-        title: 'Vacaciones',
-        description: 'Pide tus vacaciones a feriados legales',
-        icon: require('../../assets/icons/beach_vacation.png')
-    },
-    {
-        id: '3',
-        title: 'Permisos Administrativos',
-        description: 'Pide tus permisos segun lo que necesites',
-        icon: require('../../assets/icons/time_date.png')
-    },
-    {
-        id: '4',
-        title: 'Evaluación',
-        description: 'Evaluá a tu área o a compañeros de trabajo',
-        icon: require('../../assets/icons/evaluation.png')
-    },
-];
+
 
 const MyTabBar = ({ state, descriptors, navigation }) => {
     let popupRef = React.createRef();
@@ -113,7 +88,6 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
                                         title="Demo Popup"
                                         ref={(target) => popupRef = target}
                                         onTouchOutside={onClosePopup}
-                                        data={popupList}
                                     >
                                     </BottomPopup>
                                 </View>
