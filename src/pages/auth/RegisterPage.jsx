@@ -45,7 +45,6 @@ export default function RegisterPage() {
     }
 
     const onRegisterPressed = async (data) => {
-        console.log(data);
         const { username, name, lastName, password, email } = data;
         navigation.navigate("ConfirmEmail", { email: email });
         /* 

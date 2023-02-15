@@ -5,7 +5,7 @@ Amplify.configure(awsconfig);*/
 
 export default function App() {
   return (
-    <MainStack/>
+      <MainStack />
   );
 }
 

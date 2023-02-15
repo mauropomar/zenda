@@ -2,7 +2,6 @@ import React from "react";
 import { View, StyleSheet, ImageBackground, ScrollView } from "react-native";
 import HeaderPrincipal from "../../components/header/HeaderPrincipal";
 import CardHome from "../../components/home/CardHome";
-import ModalMenuOption from "../../components/modal/ModalMenuOption";
 
 
 export default function HomePage() {
@@ -11,10 +10,10 @@ export default function HomePage() {
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
                 <HeaderPrincipal username="Luisa Jimenez" />
                 <ScrollView>
-                    <CardHome />
-                    <ModalMenuOption />
+                    <CardHome />                   
                 </ScrollView>
             </ImageBackground>
+
         </View>
     )
 }

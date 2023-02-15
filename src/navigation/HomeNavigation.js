@@ -1,18 +1,55 @@
-import React from 'react';
+import React from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { View, StyleSheet, TouchableOpacity } from "react-native";
-import StyledText from "./../components/input/StyledText";
 
+import StyledText from "./../components/input/StyledText";
 import HomePage from './../pages/home/HomePage';
+import MenuPage from '../pages/menu/MenuPage';
 import SettlementPage from '../pages/settlement/SettlementPage';
 import AttendancePage from './../pages/attendance/AttendancePage';
 import DocumentPage from '../pages/document/DocumentPage';
 import OtherOptionPage from '../pages/other/OtherOptionPage';
-import ShopScreen from '../pages/screen/ShopScreen';
+import { BottomPopup } from '../components/modal/BottomPopup'
 
+const popupList = [
+    {
+        id: '1',
+        title: 'Anticipos',
+        description: 'Pide tu anticipo segun fechas estimadas',
+        icon: require('../../assets/icons/advance_money.png')
+    },
+    {
+        id: '2',
+        title: 'Vacaciones',
+        description: 'Pide tus vacaciones a feriados legales',
+        icon: require('../../assets/icons/beach_vacation.png')
+    },
+    {
+        id: '3',
+        title: 'Permisos Administrativos',
+        description: 'Pide tus permisos segun lo que necesites',
+        icon: require('../../assets/icons/time_date.png')
+    },
+    {
+        id: '4',
+        title: 'Evaluación',
+        description: 'Evaluá a tu área o a compañeros de trabajo',
+        icon: require('../../assets/icons/evaluation.png')
+    },
+];
 
 const MyTabBar = ({ state, descriptors, navigation }) => {
+    let popupRef = React.createRef();
+
+    const onShowPopup = () => {
+        popupRef.show();
+    }
+
+    const onClosePopup = () => {
+        popupRef.close();
+    }
+
     return (
         <View
             style={{
@@ -27,14 +64,17 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
                 state.routes.map((route, index) => {
                     const isFocused = state.index === index;
                     const { options } = descriptors[route.key];
-                    console.log(index, route);
                     const onPress = () => {
                         const event = navigation.emit({
                             type: 'tabPress',
                             target: route.key
                         })
                         if (!isFocused && !event.defaultPrevented) {
-                            navigation.navigate(route.name)
+                            if (route.name !== 'BottomPopup') {
+                                navigation.navigate(route.name)
+                            } else {
+                                onShowPopup();
+                            }
                         }
                     }
 
@@ -69,6 +109,13 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
                                 <View style={styles.icon}>
                                     {isFocused ? <Ionicons name="add-circle" size={60} color={color} /> :
                                         <Ionicons name="add-circle" size={60} color={color} />}
+                                    <BottomPopup
+                                        title="Demo Popup"
+                                        ref={(target) => popupRef = target}
+                                        onTouchOutside={onClosePopup}
+                                        data={popupList}
+                                    >
+                                    </BottomPopup>
                                 </View>
                             )}
                             {index === 3 && (
@@ -119,8 +166,8 @@ function HomeNavigation() {
                 }}
             ></Tab.Screen>
             <Tab.Screen
-                name="Shop"
-                component={ShopScreen}
+                name="BottomPopup"
+                component={MenuPage}
                 options={{
                     headerShown: false
                 }}
