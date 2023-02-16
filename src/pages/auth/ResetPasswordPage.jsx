@@ -1,8 +1,7 @@
 import { Formik, useField } from "formik";
-import { Button, View, StyleSheet, ImageBackground, Alert, Image } from "react-native";
+import { Button, View, StyleSheet, ImageBackground } from "react-native";
 import StyledText from "../../components/input/StyledText";
 import StyledTextInput from "../../components/input/StyleTextInput";
-import HeaderTitle from "../../components/header/HeaderTitle";
 import { resetPasswordValidationSchema } from "../../validationSchemas/ResetPasswordSchema";
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from "@react-navigation/native";

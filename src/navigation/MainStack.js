@@ -12,6 +12,8 @@ import ConfirmEmailPage from '../pages/auth/ConfirmEmailPage';
 import SplashPage from '../pages/splash/SplashPage';
 import HomeNavigation from './HomeNavigation';
 import BirthDayPage from '../pages/birthday/BirthDayPage';
+import SubFolderDocumentPage from '../pages/document/SubFolderDocument';
+import DocumentPage from '../pages/document/DocumentPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -56,7 +58,7 @@ function MainStack() {
                         headerShown: false
                     }}
                 />
-                 <Stack.Screen
+                <Stack.Screen
                     name="ConfirmEmail"
                     component={ConfirmEmailPage}
                     options={{
@@ -87,6 +89,20 @@ function MainStack() {
                 <Stack.Screen
                     name="BirthDay"
                     component={BirthDayPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="SubFolderDocument"
+                    component={SubFolderDocumentPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="Document"
+                    component={DocumentPage}
                     options={{
                         headerShown: false
                     }}

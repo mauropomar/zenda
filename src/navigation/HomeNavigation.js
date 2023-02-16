@@ -8,7 +8,7 @@ import HomePage from './../pages/home/HomePage';
 import MenuPage from '../pages/menu/MenuPage';
 import SettlementPage from '../pages/settlement/SettlementPage';
 import AttendancePage from './../pages/attendance/AttendancePage';
-import DocumentPage from '../pages/document/DocumentPage';
+import FolderDocumentPage from '../pages/document/FolderDocumentPage';
 import OtherOptionPage from '../pages/other/OtherOptionPage';
 import { BottomPopup } from '../components/modal/BottomPopup'
 
@@ -147,8 +147,8 @@ function HomeNavigation() {
                 }}
             ></Tab.Screen>
             <Tab.Screen
-                name="Document"
-                component={DocumentPage}
+                name="FolderDocument"
+                component={FolderDocumentPage}
                 options={{
                     headerShown: false
                 }}

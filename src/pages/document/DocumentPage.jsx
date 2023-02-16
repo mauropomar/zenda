@@ -1,27 +1,15 @@
 import React from "react";
 import { View, StyleSheet, ImageBackground, Image, SafeAreaView, FlatList, ScrollView } from 'react-native';
-import BoxFolder from '../../components/document/BoxFolder';
+import { useRoute } from "@react-navigation/native";
 import HeaderTitle from "../../components/header/HeaderTitle";
 
-const arr = [
-    { id: 1, name: 'Mis Documentos' },
-    { id: 2, name: 'Documentos pendientes por aprobar' }
-]
-
 export default function DocumentPage() {
+    const route = useRoute();
+    const title = route?.params?.subFolder;
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
-                <HeaderTitle title="Documentos" />
-                <SafeAreaView style={styles.view}>
-                    <FlatList
-                        numColumns={2}
-                        data={arr}
-                        keyExtractor={(item, index) => index.toString()}
-                        renderItem={({ item }) => (<BoxFolder elements={item} />)}
-                    >
-                    </FlatList>
-                </SafeAreaView>
+                <HeaderTitle title={title} />
             </ImageBackground>
         </View>
     )
@@ -33,9 +21,8 @@ const styles = StyleSheet.create({
     },
     image: {
         flex: 1,
-        height: '115%'
     },
     view: {
-        marginTop: 10
+        marginTop: 20
     }
 });

@@ -1,16 +1,30 @@
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 import StyledText from "../input/StyledText";
 
 
-export default function BoxFolder({ elements }) {
+export default function BoxFolder({ elements, isSubFolder }) {
+    const navigation = useNavigation();
+
     const { id, name } = elements;
+
+    const onShowSubFolder = () => {
+        if (isSubFolder) {
+            navigation.navigate("Document", { subFolder: name });
+        } else {
+            navigation.navigate("SubFolderDocument", { folder: name });
+        }
+    }
+
     return (
         <View style={styles.container}>
-            <Image source={require('../../../assets/icons/document.png')}
-                style={styles.icon} />
-            <View style={styles.containerText}>
-                <StyledText align='center'>{name}</StyledText>
-            </View>
+            <TouchableOpacity onPress={onShowSubFolder}>
+                <Image source={require('../../../assets/icons/document.png')}
+                    style={styles.icon} />
+                <View style={styles.containerText}>
+                    <StyledText align='center'>{name}</StyledText>
+                </View>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -27,10 +41,10 @@ const styles = StyleSheet.create({
         margin: 10,
         padding: 15
     },
-    containerText:{
-      justifyContent:'center',
-      alignItems:'center',
-      marginTop: 20
+    containerText: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 20
     },
     icon: {
 
