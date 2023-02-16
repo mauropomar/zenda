@@ -5,7 +5,7 @@ import { PopupDownload } from './PopupDownload';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import StyledText from "../input/StyledText";
 
-export default function ItemDocument({ element }) {
+export default function ItemDocument({ element, biRef }) {
     const [isChecked, setChecked] = useState(false);
 
     let popupRef = React.createRef();
@@ -18,13 +18,18 @@ export default function ItemDocument({ element }) {
         popupRef.close();
     }
 
+    const selectDocument = (checked) => {
+        setChecked(checked);
+        biRef.onSelectDocument(element, checked);
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.checkboxContainer}>
                 <Checkbox
                     style={styles.checkbox}
                     value={isChecked}
-                    onValueChange={setChecked}
+                    onValueChange={selectDocument}
                     color={isChecked ? 'green' : undefined}
                 />
                 <StyledText align='left'>{element.title}</StyledText>
