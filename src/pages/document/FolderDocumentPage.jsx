@@ -4,7 +4,7 @@ import BoxFolder from '../../components/document/BoxFolder';
 import HeaderTitle from "../../components/header/HeaderTitle";
 
 const arr = [
-    { id: 1, name: 'Mis Documentos' },
+    { id: 1, name: 'Mis Documentoss' },
     { id: 2, name: 'Documentos pendientes por aprobar' }
 ]
 

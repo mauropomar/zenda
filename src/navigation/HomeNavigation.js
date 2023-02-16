@@ -85,7 +85,7 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
                                     {isFocused ? <Ionicons name="add-circle" size={60} color={color} /> :
                                         <Ionicons name="add-circle" size={60} color={color} />}
                                     <BottomPopup
-                                        title="Demo Popup"
+                                        title="Solicitar"
                                         ref={(target) => popupRef = target}
                                         onTouchOutside={onClosePopup}
                                     >

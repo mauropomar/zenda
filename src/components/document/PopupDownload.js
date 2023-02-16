@@ -1,36 +1,28 @@
 import React from 'react';
 import { Modal, Dimensions, TouchableWithoutFeedback, StyleSheet, View, Text, FlatList, Image } from 'react-native'
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import StyledText from '../input/StyledText';
 
 const data = [
     {
         id: '1',
-        title: 'Anticipos',
-        description: 'Pide tu anticipo segun fechas estimadas',
-        icon: require('../../../assets/icons/advance_money.png')
+        title: 'Descargar Documento',
+        icon: 'download-outline'
     },
     {
         id: '2',
-        title: 'Vacaciones',
-        description: 'Pide tus vacaciones a feriados legales',
-        icon: require('../../../assets/icons/beach_vacation.png')
+        title: 'Cancelar',
+        icon: 'close-circle-outline'
     },
     {
         id: '3',
-        title: 'Permisos Administrativos',
-        description: 'Pide tus permisos segun lo que necesites',
-        icon: require('../../../assets/icons/time_date.png')
-    },
-    {
-        id: '4',
-        title: 'Evaluación',
-        description: 'Evaluá a tu área o a compañeros de trabajo',
-        icon: require('../../../assets/icons/evaluation.png')
-    },
+        title: 'Finalizar',
+        icon: 'checkmark-done-outline'
+    }
 ];
 
 const deviceHeight = Dimensions.get('window').height;
-export class BottomPopup extends React.Component {
+export class PopupDownload extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -99,11 +91,8 @@ export class BottomPopup extends React.Component {
     renderItem = ({ item }) => {
         return (
             <View style={styles.item}>
-                <Image source={item.icon} style={styles.image} />
-                <View>
-                    <StyledText align='left' fontWeight='bold' style={styles.title}>{item.title}</StyledText>
-                    <StyledText align='left' style={styles.description}>{item.description}</StyledText>
-                </View>
+                <Ionicons name={item.icon} size={28} color="black" style={styles.image}/>
+                <StyledText align='left' style={styles.title}>{item.title}</StyledText>
             </View>
         )
     }
@@ -139,9 +128,8 @@ export class BottomPopup extends React.Component {
                         borderTopRightRadius: 10,
                         borderTopLeftRadius: 10,
                         paddingHorizontal: 10,
-                        maxHeight: deviceHeight * 0.5
+                        maxHeight: deviceHeight * 0.3
                     }}>
-                        {this.renderTitle()}
                         {this.renderContent()}
                     </View>
                 </View>
@@ -157,12 +145,13 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 20,
+        marginVertical: 10
     },
     description: {
         fontSize: 14,
     },
     image: {
-        marginTop: 7,
+        marginVertical: 10,
         marginRight: 10
     }
 });
