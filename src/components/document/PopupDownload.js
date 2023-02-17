@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Dimensions, TouchableWithoutFeedback, StyleSheet, View, Text, FlatList, Image } from 'react-native'
+import { Modal, Dimensions, TouchableWithoutFeedback, StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native'
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import StyledText from '../input/StyledText';
 
@@ -37,6 +37,8 @@ export class PopupDownload extends React.Component {
     close = () => {
         this.setState({ show: false });
     }
+
+
 
     renderOutsideTouchable(onTouch) {
         const view = <View style={{ flex: 1, width: '100%' }} />
@@ -89,11 +91,15 @@ export class PopupDownload extends React.Component {
     }
 
     renderItem = ({ item }) => {
+        const { onSelectItem } = this.props;
+
         return (
-            <View style={styles.item}>
-                <Ionicons name={item.icon} size={28} color="black" style={styles.image}/>
-                <StyledText align='left' style={styles.title}>{item.title}</StyledText>
-            </View>
+            <TouchableOpacity onPress={onSelectItem}>
+                <View style={styles.item}>
+                    <Ionicons name={item.icon} size={28} color="black" style={styles.image} />
+                    <StyledText align='left' style={styles.title}>{item.title}</StyledText>
+                </View>
+            </TouchableOpacity>
         )
     }
 
@@ -108,7 +114,7 @@ export class PopupDownload extends React.Component {
 
     render() {
         let { show } = this.state;
-        const { onTouchOutside, title } = this.props;
+        const { onTouchOutside } = this.props;
         return (
             <Modal
                 animationType={'fade'}

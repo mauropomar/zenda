@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Button, View, StyleSheet, ImageBackground, Image, SafeAreaView, ScrollView, FlatList, Text } from 'react-native';
+import { Button, View, StyleSheet, ImageBackground,  SafeAreaView, ScrollView, FlatList } from 'react-native';
 import { useRoute } from "@react-navigation/native";
+import * as FileSystem from 'expo-file-system';
 import ItemDocument from "../../components/document/ItemDocument";
 import HeaderTitle from "../../components/header/HeaderTitle";
 
 const DATA = [
     {
         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'okk 02/02/2023',
+        title: 'ok 02/02/2023',
         url: 'https://www.africau.edu/images/default/sample.pdf',
         isSelected: false
     },
@@ -57,9 +58,17 @@ const DocumentPage = () => {
         onSelectDocument: onSelectDocument
     }
 
-    const onDownload = () => {
-
-    }    
+    const onDownload = async () => {
+        const url = 'https://www.africau.edu/images/default/sample.pdf';
+        const filename = 'sample.pdf'
+        const fileUri = `${FileSystem.documentDirectory}${filename}`;
+        const downloadedFile = await FileSystem.downloadAsync(url, fileUri);
+        if (downloadedFile.status != 200) {
+            handleError();
+        } else {
+            console.warn('Descarga exitosa')
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -74,7 +83,7 @@ const DocumentPage = () => {
                             keyExtractor={item => item.id}
                         />
                     </ScrollView>
-                    <View style={[styles.button, visibleButton ? styles.button :  styles.buttonHide]}>
+                    <View style={[styles.button, visibleButton ? styles.button : styles.buttonHide]}>
                         <Button
                             onPress={onDownload}
                             title={titleButton}
@@ -111,8 +120,8 @@ const styles = StyleSheet.create({
         width: '95%',
         margin: 10
     },
-    buttonHide:{
-        display:'none'
+    buttonHide: {
+        display: 'none'
     }
 });
 

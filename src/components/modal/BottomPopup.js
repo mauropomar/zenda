@@ -119,7 +119,7 @@ export class BottomPopup extends React.Component {
 
     render() {
         let { show } = this.state;
-        const { onTouchOutside, title } = this.props;
+        const { onTouchOutside} = this.props;
         return (
             <Modal
                 animationType={'fade'}
