@@ -7,7 +7,7 @@ import { ModalConfirm } from '../modal/ModalConfirm';
 
 import StyledText from "../input/StyledText";
 
-export default function ItemDocument({ element, biRef }) {
+export default function ItemDocument({ element, onSelectItem }) {
     const [isChecked, setChecked] = useState(false);
 
     let popupRef = React.createRef();
@@ -27,7 +27,7 @@ export default function ItemDocument({ element, biRef }) {
 
     const selectDocument = (checked) => {
         setChecked(checked);
-        biRef.onSelectDocument(element, checked);
+        onSelectItem(element, checked);
     }
 
     const onClickOption = () => {

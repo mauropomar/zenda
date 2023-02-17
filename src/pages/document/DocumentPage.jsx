@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, View, StyleSheet, ImageBackground,  SafeAreaView, ScrollView, FlatList } from 'react-native';
+import { Button, View, StyleSheet, ImageBackground, SafeAreaView, ScrollView, FlatList } from 'react-native';
 import { useRoute } from "@react-navigation/native";
 import * as FileSystem from 'expo-file-system';
 import ItemDocument from "../../components/document/ItemDocument";
@@ -54,16 +54,14 @@ const DocumentPage = () => {
         setVisibleButton(visible)
     }
 
-    const biRef = {
-        onSelectDocument: onSelectDocument
-    }
-
     const onDownload = async () => {
         const url = 'https://www.africau.edu/images/default/sample.pdf';
         const filename = 'sample.pdf'
         const fileUri = `${FileSystem.documentDirectory}${filename}`;
+        console.warn(fileUri)
         const downloadedFile = await FileSystem.downloadAsync(url, fileUri);
         if (downloadedFile.status != 200) {
+            console.warn('Descarga no exitosa')
             handleError();
         } else {
             console.warn('Descarga exitosa')
@@ -79,7 +77,7 @@ const DocumentPage = () => {
                         <FlatList
                             data={documents}
                             ItemSeparatorComponent={renderSeparator}
-                            renderItem={({ item }) => <ItemDocument element={item} biRef={biRef} />}
+                            renderItem={({ item }) => <ItemDocument element={item} onSelectItem={onSelectDocument} />}
                             keyExtractor={item => item.id}
                         />
                     </ScrollView>
