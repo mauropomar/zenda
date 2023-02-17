@@ -7,6 +7,7 @@ import StyledText from "./../components/input/StyledText";
 import HomePage from './../pages/home/HomePage';
 import MenuPage from '../pages/menu/MenuPage';
 import SettlementPage from '../pages/settlement/SettlementPage';
+
 import AttendancePage from './../pages/attendance/AttendancePage';
 import FolderDocumentPage from '../pages/document/FolderDocumentPage';
 import OtherOptionPage from '../pages/other/OtherOptionPage';

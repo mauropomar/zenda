@@ -28,7 +28,6 @@ const FormikInputValue = ({ name, ...props }) => {
 };
 
 export default function LoginPage() {
-  const { showSlider, setShowSlider } = useState(true);
   const navigation = useNavigation();
   const onShowRegister = (event) => {
     navigation.navigate("Register")

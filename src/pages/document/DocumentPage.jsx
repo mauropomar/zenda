@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     },
     list: {
         flex: 1,
-        marginTop: 20,
+        marginTop: 40,
     },
     item: {
         backgroundColor: '#f9c2ff',

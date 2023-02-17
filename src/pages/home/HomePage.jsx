@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     },
     image: {
         flex: 1,
-        height: '115%'
+        height: '110%'
     },
     logo: {
         top: 10,

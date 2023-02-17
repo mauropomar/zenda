@@ -26,8 +26,7 @@ export default function HeaderTitle({title}) {
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 40,
-        marginBottom:20,
+        paddingVertical: 10,
         marginLeft: 10,
         justifyContent: 'flex-start',
         flexDirection: 'row'

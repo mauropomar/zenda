@@ -77,7 +77,6 @@ const styles = StyleSheet.create({
     },
     image: {
         flex: 1,
-        height: '115%'
     },
     textWelcome: {
         fontSize: 24,

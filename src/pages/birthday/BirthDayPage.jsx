@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     view:{
-       marginTop: 10
+       marginTop: 40,
+       flex: 1,
     },
     image: {
         flex: 1

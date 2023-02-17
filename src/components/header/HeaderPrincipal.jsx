@@ -23,9 +23,8 @@ export default function HeaderPrincipal({ username }) {
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 30,
+        paddingVertical: 20,
         marginLeft: 10,
-        paddingBottom: 15,
         justifyContent: 'space-between',
         flexDirection: 'row'
     },

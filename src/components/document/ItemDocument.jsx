@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import Checkbox from 'expo-checkbox';
 import { Ionicons } from '@expo/vector-icons';
 import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 import { PopupDownload } from './PopupDownload';
 import { ModalConfirm } from '../modal/ModalConfirm';
 
 import StyledText from "../input/StyledText";
 
 export default function ItemDocument({ element, onSelectItem }) {
+    const navigation = useNavigation();
     const [isChecked, setChecked] = useState(false);
 
     let popupRef = React.createRef();
@@ -22,7 +24,7 @@ export default function ItemDocument({ element, onSelectItem }) {
     }
 
     const onCloseModalConfirm = () => {
-        popupConfirmRef.close();
+        popupConfirmRef.close();       
     }
 
     const selectDocument = (checked) => {
@@ -36,6 +38,7 @@ export default function ItemDocument({ element, onSelectItem }) {
 
     const onCancel = () => {      
         popupConfirmRef.close();
+        navigation.navigate("CancelDocument");
     }
 
     return (

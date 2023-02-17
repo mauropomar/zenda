@@ -14,6 +14,7 @@ import HomeNavigation from './HomeNavigation';
 import BirthDayPage from '../pages/birthday/BirthDayPage';
 import SubFolderDocumentPage from '../pages/document/SubFolderDocument';
 import DocumentPage from '../pages/document/DocumentPage';
+import CancelDocumentPage from "../pages/document/CancelDocumentPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -103,6 +104,13 @@ function MainStack() {
                 <Stack.Screen
                     name="Document"
                     component={DocumentPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                  <Stack.Screen
+                    name="CancelDocument"
+                    component={CancelDocumentPage}
                     options={{
                         headerShown: false
                     }}
