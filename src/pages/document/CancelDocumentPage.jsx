@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet, ImageBackground, Button, TextInput } from 'react-native';
 import { Formik } from "formik";
+import BottomToolbar from "../../components/toolbar/BottomToolbar";
 import HeaderTitle from "../../components/header/HeaderTitle";
 
 
@@ -55,6 +56,7 @@ export default function CancelDocumentPage() {
                         }}
                     </Formik>
                 </View>
+                <BottomToolbar/>
             </ImageBackground>
         </View>
     )

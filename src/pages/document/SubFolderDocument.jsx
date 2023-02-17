@@ -3,6 +3,7 @@ import { View, StyleSheet, ImageBackground, Image, SafeAreaView, FlatList, Scrol
 import { useRoute } from "@react-navigation/native";
 import BoxFolder from '../../components/document/BoxFolder';
 import HeaderTitle from "../../components/header/HeaderTitle";
+import BottomToolbar from "../../components/toolbar/BottomToolbar";
 
 const arr = [
     { id: 1, name: 'Finiquito' },
@@ -29,7 +30,9 @@ export default function SubFolderDocumentPage() {
                         >
                         </FlatList>
                     </ScrollView>
+                   
                 </SafeAreaView>
+                <BottomToolbar/>
             </ImageBackground>
         </View>
     )
@@ -37,7 +40,7 @@ export default function SubFolderDocumentPage() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1
     },
     image: {
         flex: 1,

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, View, StyleSheet, ImageBackground, SafeAreaView, ScrollView, FlatList } from 'react-native';
 import { useRoute } from "@react-navigation/native";
 import * as FileSystem from 'expo-file-system';
+import BottomToolbar from "../../components/toolbar/BottomToolbar";
 import ItemDocument from "../../components/document/ItemDocument";
 import HeaderTitle from "../../components/header/HeaderTitle";
 
@@ -89,6 +90,7 @@ const DocumentPage = () => {
                         />
                     </View>
                 </SafeAreaView>
+                <BottomToolbar/>
             </ImageBackground>
         </View>
     )

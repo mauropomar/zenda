@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Dimensions, TouchableWithoutFeedback, StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native'
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import StyledText from '../input/StyledText';
 
 const data = [
@@ -92,7 +92,6 @@ export class PopupDownload extends React.Component {
 
     renderItem = ({ item }) => {
         const { onSelectItem } = this.props;
-
         return (
             <TouchableOpacity onPress={onSelectItem}>
                 <View style={styles.item}>

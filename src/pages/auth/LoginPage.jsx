@@ -38,52 +38,52 @@ export default function LoginPage() {
   }
 
   const onLoginPress = (event) => {
-    navigation.navigate("Home")
+    navigation.navigate("HomeNavigation")
   }
 
   return (
-      <View style={styles.container}>
-        <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
-          <View style={styles.containerForm}>
-            <View style={styles.containerImage}>
-              <Image
-                style={styles.userPhoto}
-                source={require('../../../assets/images/user_photo.png')}
-              />
-            </View>
-            <StyledText align='center' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>¡Bienvenido otra vez!</StyledText>
-            <Formik
-              validationSchema={loginValidationSchema}
-              initialValues={initialValues}
-              onSubmit={(values) => onLoginPress(values)}
-            >
-              {({ handleSubmit }) => {
-                return (
-                  <View style={styles.form}>
-                    <FormikInputValue name="email" placeholder="Correo electrónico" style={styles.input} />
-                    <FormikInputValue
-                      name="password"
-                      placeholder="Contraseña"
-                      style={styles.input}
-                      secureTextEntry
-                    />
-                    <StyledText color='primary' fontWeight='bold' style={styles.forgotPassword} onPress={onShowForgotPassword}>¿Olvidaste tu contraseña?</StyledText>
-                    <Button
-                      onPress={handleSubmit}
-                      title="Ingresar"
-                      color="#0F8847"
-                    />
-                    <View style={styles.containerRegister}>
-                      <StyledText color='black' fontWeight='bold'>¿No tenés cuenta?</StyledText>
-                      <StyledText color='primary' fontWeight='bold' onPress={onShowRegister} style={styles.hyperlinkRegister}> Registrate</StyledText>
-                    </View>
-                  </View>
-                );
-              }}
-            </Formik>
+    <View style={styles.container}>
+      <ImageBackground source={require('../../../assets/images/top_waves.png')} resizeMode="cover" style={styles.image}>
+        <View style={styles.containerForm}>
+          <View style={styles.containerImage}>
+            <Image
+              style={styles.userPhoto}
+              source={require('../../../assets/images/user_photo.png')}
+            />
           </View>
-        </ImageBackground>
-      </View>
+          <StyledText align='center' fontWeight='bold' fontSize='heading' color="blackLight" style={styles.textWelcome}>¡Bienvenido otra vez!</StyledText>
+          <Formik
+            validationSchema={loginValidationSchema}
+            initialValues={initialValues}
+            onSubmit={(values) => onLoginPress(values)}
+          >
+            {({ handleSubmit }) => {
+              return (
+                <View style={styles.form}>
+                  <FormikInputValue name="email" placeholder="Correo electrónico" style={styles.input} />
+                  <FormikInputValue
+                    name="password"
+                    placeholder="Contraseña"
+                    style={styles.input}
+                    secureTextEntry
+                  />
+                  <StyledText color='primary' fontWeight='bold' style={styles.forgotPassword} onPress={onShowForgotPassword}>¿Olvidaste tu contraseña?</StyledText>
+                  <Button
+                    onPress={handleSubmit}
+                    title="Ingresar"
+                    color="#0F8847"
+                  />
+                  <View style={styles.containerRegister}>
+                    <StyledText color='black' fontWeight='bold'>¿No tenés cuenta?</StyledText>
+                    <StyledText color='primary' fontWeight='bold' onPress={onShowRegister} style={styles.hyperlinkRegister}> Registrate</StyledText>
+                  </View>
+                </View>
+              );
+            }}
+          </Formik>
+        </View>
+      </ImageBackground>
+    </View>
   );
 }
 

@@ -25,7 +25,7 @@ function MainStack() {
                 initialRouteName='Intro'
             >
                 <Stack.Screen
-                    name="Home"
+                    name="HomeNavigation"
                     component={HomeNavigation}
                     options={{
                         headerShown: false
@@ -108,7 +108,7 @@ function MainStack() {
                         headerShown: false
                     }}
                 />
-                  <Stack.Screen
+                <Stack.Screen
                     name="CancelDocument"
                     component={CancelDocumentPage}
                     options={{

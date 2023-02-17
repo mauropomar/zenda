@@ -32,7 +32,7 @@ export default function ItemDocument({ element, onSelectItem }) {
         onSelectItem(element, checked);
     }
 
-    const onClickOption = () => {
+    const onClickMenuOption = () => {
         popupConfirmRef.show();
     }
 
@@ -56,7 +56,7 @@ export default function ItemDocument({ element, onSelectItem }) {
                 <Ionicons name="ellipsis-vertical" size={24} />
             </TouchableOpacity>
             <PopupDownload
-                onSelectItem={onClickOption}
+                onSelectItem={onClickMenuOption}
                 ref={(target) => popupRef = target}
                 onTouchOutside={onClosePopup}
             >
