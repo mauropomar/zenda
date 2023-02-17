@@ -45,11 +45,17 @@ const DateUtil = {
         const formatted = `${date} ${monthName}`;
         return formatted.toString()
     },
-    convertToPeriodo: function (newDate) {
+    convertToString: function (newDate, format) {
         const date = new Date(newDate);
+        const day = date.getDate();
         const month = date.getMonth() < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
         const year = date.getFullYear();
-        const formatted = `${month}/${year}`;
+        let formatted;
+        if (format === "MM/YY") {
+            formatted = `${month}/${year}`;
+        } else {
+            formatted = `${day}/${month}/${year}`;
+        }
         return formatted;
     },
 };

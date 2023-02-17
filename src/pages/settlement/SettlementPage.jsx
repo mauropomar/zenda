@@ -44,7 +44,7 @@ export default function SettlementPage() {
                             return (
                                 <View style={styles.form}>
                                     <View style={styles.datepicker}>
-                                    <DatePickerInput />
+                                    <DatePickerInput format="MM/YY"/>
                                     </View>
                                     <Button
                                         onPress={handleSubmit}

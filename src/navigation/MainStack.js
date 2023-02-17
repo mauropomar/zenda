@@ -1,7 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-
+import GlobalUtil from '../utils/global';
 import StackScreen from '../pages/screen/StackScreen';
 import IntroPage from '../pages/auth/IntroPage';
 import LoginPage from '../pages/auth/LoginPage';
@@ -10,7 +10,8 @@ import ForgotPasswordPage from '../pages/auth/ForgotPasswordPage';
 import ResetPasswordPage from '../pages/auth/ResetPasswordPage';
 import ConfirmEmailPage from '../pages/auth/ConfirmEmailPage';
 import SplashPage from '../pages/splash/SplashPage';
-import HomeNavigation from './HomeNavigation';
+import HomeNavigationChile from './HomeNavigationChile';
+import HomeNavigationPeru from './HomeNavigationPeru';
 import BirthDayPage from '../pages/birthday/BirthDayPage';
 import SubFolderDocumentPage from '../pages/document/SubFolderDocument';
 import DocumentPage from '../pages/document/DocumentPage';
@@ -19,6 +20,7 @@ import CancelDocumentPage from "../pages/document/CancelDocumentPage";
 const Stack = createNativeStackNavigator();
 
 function MainStack() {
+    const HomeNavigation = GlobalUtil.getHomeNavigation();
     return (
         <NavigationContainer>
             <Stack.Navigator

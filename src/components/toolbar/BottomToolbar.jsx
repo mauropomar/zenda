@@ -5,8 +5,6 @@ import { useNavigation } from '@react-navigation/native';
 import { BottomPopup } from '../modal/BottomPopup';
 import StyledText from '../input/StyledText';
 
-
-
 export default function BottomToolbar() {
     const navigation = useNavigation();
     let popupRef = React.createRef();

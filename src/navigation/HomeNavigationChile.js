@@ -2,11 +2,11 @@ import React from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { View, StyleSheet, TouchableOpacity } from "react-native";
-import StyledText from "./../components/input/StyledText";
-import HomePage from './../pages/home/HomePage';
+import StyledText from "../components/input/StyledText";
+import HomePage from '../pages/home/HomePage';
 import MenuPage from '../pages/menu/MenuPage';
 import SettlementPage from '../pages/settlement/SettlementPage';
-import AttendancePage from './../pages/attendance/AttendancePage';
+import AttendancePage from '../pages/attendance/AttendancePage';
 import FolderDocumentPage from '../pages/document/FolderDocumentPage';
 import OtherOptionPage from '../pages/other/OtherOptionPage';
 import { BottomPopup } from '../components/modal/BottomPopup';
@@ -68,9 +68,9 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
                             )}
                             {index === 1 && (
                                 <View style={styles.icon}>
-                                    {isFocused ? <MaterialIcons name="attach-money" size={24} color={color} /> :
-                                        <MaterialIcons name="attach-money" size={24} color={color} />}
-                                    <StyledText style={styles.text}>Liquidación</StyledText>
+                                    {isFocused ? <Ionicons name="md-phone-portrait" size={24} color={color} /> :
+                                        <Ionicons name="md-phone-portrait-outline" size={24} color={color} />}
+                                    <StyledText style={styles.text}>Asistencia</StyledText>
                                 </View>
                                 /* <View style={styles.icon}>
                                      {isFocused ? <Ionicons name="calendar" size={24} color={color} /> :
@@ -115,7 +115,7 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
 const Tab = createBottomTabNavigator();
 
 
-function HomeNavigation() {
+function HomeNavigationChile() {
     return (
         <Tab.Navigator
             tabBar={(props) => <MyTabBar {...props} />}
@@ -131,8 +131,8 @@ function HomeNavigation() {
                 }}
             ></Tab.Screen>
             <Tab.Screen
-                name="Settlement"
-                component={SettlementPage}
+                name="Attendance"
+                component={AttendancePage}
                 options={{
                     headerShown: false
                 }}
@@ -176,4 +176,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HomeNavigation
+export default HomeNavigationChile
