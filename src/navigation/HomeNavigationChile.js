@@ -68,8 +68,8 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
                             )}
                             {index === 1 && (
                                 <View style={styles.icon}>
-                                    {isFocused ? <Ionicons name="md-phone-portrait" size={24} color={color} /> :
-                                        <Ionicons name="md-phone-portrait-outline" size={24} color={color} />}
+                                    {isFocused ? <Ionicons name="calendar" size={24} color={color} /> :
+                                        <Ionicons name="calendar-outline" size={24} color={color} />}
                                     <StyledText style={styles.text}>Asistencia</StyledText>
                                 </View>
                                 /* <View style={styles.icon}>
@@ -92,8 +92,8 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
                             )}
                             {index === 3 && (
                                 <View style={styles.icon}>
-                                    {isFocused ? <Ionicons name="folder-open" size={24} color={color} /> :
-                                        <Ionicons name="folder-open-outline" size={24} color={color} />}
+                                    {isFocused ? <Ionicons name="document-text" size={24} color={color} /> :
+                                        <Ionicons name="document-text-outline" size={24} color={color} />}
                                     <StyledText style={styles.text}>Documentos</StyledText>
                                 </View>
                             )}

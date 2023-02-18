@@ -3,7 +3,7 @@ import HomeNavigationChile from "../navigation/HomeNavigationChile";
 import HomeNavigationColombia from "../navigation/HomeNavigationColombia";
 
 const GlobalUtil = {
-    countrie: 'COLOMBIA',
+    countrie: 'CHILE',
     getHomeNavigation: function () {
         if (this.countrie === "CHILE") {
             return HomeNavigationChile;
