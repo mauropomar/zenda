@@ -2,6 +2,7 @@ import React from "react";
 import { View, StyleSheet, ImageBackground, Image, SafeAreaView, FlatList, ScrollView } from 'react-native';
 import BoxBirthDay from '../../components/birthday/BoxBirthday';
 import HeaderTitle from "../../components/header/HeaderTitle";
+import BottomToolbar from '../../components/toolbar/BottomToolbar';
 
 const arr = [
     { date: '2020-12-10', name: 'Jaime', url: require('../../../assets/images/user2.png') },
@@ -26,6 +27,7 @@ export default function BirthDayPage() {
                         </FlatList>
                     </ScrollView>
                 </SafeAreaView>
+                <BottomToolbar/>
             </ImageBackground>
         </View>
     )

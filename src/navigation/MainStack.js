@@ -13,6 +13,7 @@ import SplashPage from '../pages/splash/SplashPage';
 import HomeNavigationChile from './HomeNavigationChile';
 import HomeNavigationPeru from './HomeNavigationPeru';
 import BirthDayPage from '../pages/birthday/BirthDayPage';
+import AdvancePage from '../pages/advance/AdvancePage';
 import SubFolderDocumentPage from '../pages/document/SubFolderDocument';
 import DocumentPage from '../pages/document/DocumentPage';
 import CancelDocumentPage from "../pages/document/CancelDocumentPage";
@@ -113,6 +114,13 @@ function MainStack() {
                 <Stack.Screen
                     name="CancelDocument"
                     component={CancelDocumentPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="Advance"
+                    component={AdvancePage}
                     options={{
                         headerShown: false
                     }}

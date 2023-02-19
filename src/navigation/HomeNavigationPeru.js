@@ -71,6 +71,7 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
                                         title="Solicitar"
                                         ref={(target) => popupRef = target}
                                         onTouchOutside={onClosePopup}
+                                        navigation={navigation}
                                     >
                                     </BottomPopup>
                                 </View>

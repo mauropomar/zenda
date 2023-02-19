@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Dimensions, TouchableWithoutFeedback, StyleSheet, View, Text, FlatList, Image } from 'react-native'
+import { Modal, Dimensions, TouchableWithoutFeedback, StyleSheet, View, Text, FlatList, Image, TouchableOpacity } from 'react-native'
 import StyledText from '../input/StyledText';
 
 const data = [
@@ -7,30 +7,35 @@ const data = [
         id: '1',
         title: 'Anticipos',
         description: 'Pide tu anticipo segun fechas estimadas',
-        icon: require('../../../assets/icons/advance_money.png')
+        icon: require('../../../assets/icons/advance_money.png'),
+        name: 'Advance'
     },
     {
         id: '2',
         title: 'Vacaciones',
         description: 'Pide tus vacaciones a feriados legales',
-        icon: require('../../../assets/icons/beach_vacation.png')
+        icon: require('../../../assets/icons/beach_vacation.png'),
+        name: 'Vacation'
     },
     {
         id: '3',
         title: 'Permisos Administrativos',
         description: 'Pide tus permisos segun lo que necesites',
-        icon: require('../../../assets/icons/time_date.png')
+        icon: require('../../../assets/icons/time_date.png'),
+        name: 'Permisos'
     },
     {
         id: '4',
         title: 'Evaluación',
         description: 'Evaluá a tu área o a compañeros de trabajo',
-        icon: require('../../../assets/icons/evaluation.png')
+        icon: require('../../../assets/icons/evaluation.png'),
+        name: 'Eveluacion'
     },
 ];
 
 const deviceHeight = Dimensions.get('window').height;
 export class BottomPopup extends React.Component {
+
     constructor(props) {
         super(props)
         this.state = {
@@ -44,6 +49,11 @@ export class BottomPopup extends React.Component {
 
     close = () => {
         this.setState({ show: false });
+    }
+
+    onSelectOption = () => {
+        //  console.log('local');
+        //  this.navigation.navigate('Advance');
     }
 
     renderOutsideTouchable(onTouch) {
@@ -97,14 +107,22 @@ export class BottomPopup extends React.Component {
     }
 
     renderItem = ({ item }) => {
+        const { navigation } = this.props;
+
+        const onSelectOption = () => {
+            navigation.navigate(item.name);
+        }
+
         return (
-            <View style={styles.item}>
-                <Image source={item.icon} style={styles.image} />
-                <View>
-                    <StyledText align='left' fontWeight='bold' style={styles.title}>{item.title}</StyledText>
-                    <StyledText align='left' style={styles.description}>{item.description}</StyledText>
+            <TouchableOpacity onPress={onSelectOption}>
+                <View style={styles.item}>
+                    <Image source={item.icon} style={styles.image} />
+                    <View>
+                        <StyledText align='left' fontWeight='bold' style={styles.title}>{item.title}</StyledText>
+                        <StyledText align='left' style={styles.description}>{item.description}</StyledText>
+                    </View>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 
@@ -119,7 +137,8 @@ export class BottomPopup extends React.Component {
 
     render() {
         let { show } = this.state;
-        const { onTouchOutside} = this.props;
+        //  const navigation = useNavigation();
+        const { onTouchOutside } = this.props;
         return (
             <Modal
                 animationType={'fade'}

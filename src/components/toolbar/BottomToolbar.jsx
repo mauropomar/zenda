@@ -171,6 +171,7 @@ export default function BottomToolbar() {
                 title="Solicitar"
                 ref={(target) => popupRef = target}
                 onTouchOutside={onClosePopup}
+                navigation={navigation}
             >
             </BottomPopup>
         </View>
