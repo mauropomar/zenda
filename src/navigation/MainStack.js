@@ -14,6 +14,7 @@ import HomeNavigationChile from './HomeNavigationChile';
 import HomeNavigationPeru from './HomeNavigationPeru';
 import BirthDayPage from '../pages/birthday/BirthDayPage';
 import AdvancePage from '../pages/advance/AdvancePage';
+import AdvanceStatePage from '../pages/advance/AdvanceStatePage';
 import SubFolderDocumentPage from '../pages/document/SubFolderDocument';
 import DocumentPage from '../pages/document/DocumentPage';
 import CancelDocumentPage from "../pages/document/CancelDocumentPage";
@@ -121,6 +122,13 @@ function MainStack() {
                 <Stack.Screen
                     name="Advance"
                     component={AdvancePage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="AdvanceState"
+                    component={AdvanceStatePage}
                     options={{
                         headerShown: false
                     }}

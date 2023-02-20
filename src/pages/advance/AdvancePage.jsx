@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet, ImageBackground, Image, Button } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from '@expo/vector-icons';
 import { Formik, useField } from "formik";
 import { advanceValidationSchema } from "../../validationSchemas/AdvanceSchema";
@@ -19,7 +20,7 @@ const FormikInputValue = ({ name, ...props }) => {
         <>
             <View style={styles.containerInput}>
                 <View style={styles.iconInput}>
-                    <MaterialIcons name="attach-money" size={24}/>
+                    <MaterialIcons name="attach-money" size={24} />
                 </View>
                 <View style={styles.input}>
                     <StyledTextInput
@@ -36,17 +37,22 @@ const FormikInputValue = ({ name, ...props }) => {
 };
 
 export default function AdvancePage() {
+    const navigation = useNavigation();
     const title = 'Cerrado el proceso de solicitar anticipo';
     const description = 'A partir del 01/08/2023 se podrá volver a solicitar anticipos';
 
     const onSubmitValue = (values) => {
-       console.warn(values) 
+        console.warn(values)
+    }
+
+    const onClickStates = () => {
+       navigation.navigate('AdvanceState');
     }
 
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
-                <HeaderTitle title="Solicitar Anticipo" />
+                <HeaderTitle title="Solicitar Anticipo" linkText="Ver estados" clickStates={onClickStates} />
                 <View style={styles.containerInfo}>
                     <Image source={require('../../../assets/icons/info_black.png')}
                         style={styles.icon} />
@@ -119,20 +125,20 @@ const styles = StyleSheet.create({
     },
     containerInput: {
         flexDirection: 'row',
-        justifyContent:'flex-start',
-        alignItems:'flex-start',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         height: 50,
         borderWidth: 0.6,
         borderRadius: 10,
         marginBottom: 20
     },
     textInput: {
-      fontSize:20, 
-      marginLeft:10,
+        fontSize: 20,
+        marginLeft: 10,
     },
     input: {
-       width:'98%',
-       marginLeft:-10
+        width: '98%',
+        marginLeft: -10
     },
     iconInput: {
         marginTop: 15,
@@ -143,7 +149,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         marginBottom: 20,
         marginTop: -5,
-      }
+    }
 });
 
 
