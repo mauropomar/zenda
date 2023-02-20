@@ -18,6 +18,7 @@ import AdvanceStatePage from '../pages/advance/AdvanceStatePage';
 import SubFolderDocumentPage from '../pages/document/SubFolderDocument';
 import DocumentPage from '../pages/document/DocumentPage';
 import CancelDocumentPage from "../pages/document/CancelDocumentPage";
+import PermissionPage from '../pages/permission/PermissionPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -129,6 +130,13 @@ function MainStack() {
                 <Stack.Screen
                     name="AdvanceState"
                     component={AdvanceStatePage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="Permission"
+                    component={PermissionPage}
                     options={{
                         headerShown: false
                     }}

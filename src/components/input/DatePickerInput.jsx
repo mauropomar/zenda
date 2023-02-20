@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         borderColor: 'black',
         borderWidth: 1,
-        borderRadius: 10,
+        borderRadius: 5,
         height: 44
     },
     textInput: {

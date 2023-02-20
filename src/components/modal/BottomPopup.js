@@ -22,7 +22,7 @@ const data = [
         title: 'Permisos Administrativos',
         description: 'Pide tus permisos segun lo que necesites',
         icon: require('../../../assets/icons/time_date.png'),
-        name: 'Permisos'
+        name: 'Permission'
     },
     {
         id: '4',
