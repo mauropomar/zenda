@@ -5,8 +5,8 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DateUtil from "../../utils/date";
 import StyledText from "./StyledText";
 
-const DatePickerInput = ({ format }) => {
-    const initialValue = format === 'MM/YY' ? 'Seleccione un periodo' : "Seleccione una fecha"
+const DatePickerInput = ({ format, placeHolder }) => {
+    const initialValue = placeHolder;
     const [value, setValue] = useState(initialValue);
     const color = 'black';
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -28,7 +28,7 @@ const DatePickerInput = ({ format }) => {
     return (
         <View>
             <TouchableOpacity onPress={showDatePicker} style={styles.button}>
-                <StyledText color='black' align='left' fontSize='heading' style={styles.textInput}>{value}</StyledText>
+                <StyledText color='black' align='center' fontSize='heading' style={styles.textInput}>{value}</StyledText>
                 <View style={styles.icon}>
                     <MaterialIcons name="date-range" size={30} color={color} />
                 </View>

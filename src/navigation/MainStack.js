@@ -20,6 +20,8 @@ import DocumentPage from '../pages/document/DocumentPage';
 import CancelDocumentPage from "../pages/document/CancelDocumentPage";
 import PermissionPage from '../pages/permission/PermissionPage';
 import PermissionReportPage from '../pages/permission/PermissionReportPage';
+import VacationPage from '../pages/vacation/VacationPage';
+import VacationReportPage from '../pages/vacation/VacationReportPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -145,6 +147,20 @@ function MainStack() {
                 <Stack.Screen
                     name="PermissionReport"
                     component={PermissionReportPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="Vacation"
+                    component={VacationPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="VacationReport"
+                    component={VacationReportPage}
                     options={{
                         headerShown: false
                     }}
