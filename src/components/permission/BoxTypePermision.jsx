@@ -1,4 +1,4 @@
-import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, Image, TouchableOpacity } from "react-native";
 import StyledText from "../input/StyledText";
 
 export default function BoxTypePermission({ elements, selectType }) {

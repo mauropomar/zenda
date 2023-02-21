@@ -8,6 +8,7 @@ import BoxTypePermission from "../../components/permission/BoxTypePermision";
 import DateRangeInput from "../../components/input/DateRangeInput";
 import SearchInput from "../../components/input/SearchInput";
 import StyledText from "../../components/input/StyledText";
+import SearchRequestPanel from "../../components/permission/SearchRequestPanel";
 
 
 const arrTypes = [{
@@ -60,9 +61,7 @@ export default function PermissionPage() {
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
                 <HeaderTitle title="Solicitar Permisos" linkText="Ver estados" clickStates={onClickStates} />
-
-                <View style={styles.view}>
-                    <ScrollView>
+                <ScrollView style={styles.view}>
                         <SafeAreaView>
                             <FlatList
                                 numColumns={2}
@@ -103,6 +102,7 @@ export default function PermissionPage() {
                             <View style={{ margin: 10 }}>
                                 <SearchInput placeHolder="Buscar..." searchEvent={onSearchRequest}/>
                             </View>
+                            <SearchRequestPanel />
                             <View style={{ margin: 10 }}>
                                 <Button
                                     disabled
@@ -111,8 +111,7 @@ export default function PermissionPage() {
                                 />
                             </View>
                         </View>
-                    </ScrollView>
-                </View>
+                </ScrollView>
 
                 <BottomToolbar />
             </ImageBackground>
