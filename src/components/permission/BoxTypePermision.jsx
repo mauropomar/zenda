@@ -1,17 +1,19 @@
 import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import StyledText from "../input/StyledText";
 
-export default function BoxTypePermission({ elements }) {
+export default function BoxTypePermission({ elements, selectType }) {
     const { id, name, icon } = elements;
+
+    const onPress = () => {
+        selectType(elements);
+    }
+
     return (
-        <View style={styles.container}>
-            <TouchableOpacity>
-                <Image source={icon}
-                    style={styles.icon} />
-                
-            </TouchableOpacity>
+        <TouchableOpacity onPress={onPress} style={styles.container}>
+            <Image source={icon}
+                style={styles.icon} />
             <StyledText align='center'>{name}</StyledText>
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -20,8 +22,8 @@ const styles = StyleSheet.create({
         width: '45%',
         height: 120,
         backgroundColor: '#FBFCFC',
-        justifyContent:'center',
-        alignItems:'center',
+        justifyContent: 'center',
+        alignItems: 'center',
         shadowColor: 'black',
         shadowOpacity: 0.2,
         borderRadius: 10,
@@ -30,8 +32,8 @@ const styles = StyleSheet.create({
         padding: 15
     },
     icon: {
-       width:30,
-       height:30,
-       marginBottom: 10
+        width: 30,
+        height: 30,
+        marginBottom: 10
     }
 });

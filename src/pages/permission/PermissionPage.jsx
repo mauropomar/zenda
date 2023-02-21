@@ -1,15 +1,13 @@
 import React from "react";
 import Toggle from 'react-native-toggle-input'
-import { View, StyleSheet, ImageBackground, Image, Button, SafeAreaView, FlatList, TextInput, ScrollView } from 'react-native';
+import { View, StyleSheet, ImageBackground, Button, SafeAreaView, FlatList, TextInput, ScrollView } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
-import { MaterialIcons } from '@expo/vector-icons';
-import { Formik, useField } from "formik";
 import HeaderTitle from "../../components/header/HeaderTitle";
 import BottomToolbar from '../../components/toolbar/BottomToolbar';
 import BoxTypePermission from "../../components/permission/BoxTypePermision";
 import DateRangeInput from "../../components/input/DateRangeInput";
+import SearchInput from "../../components/input/SearchInput";
 import StyledText from "../../components/input/StyledText";
-import StyledTextInput from "../../components/input/StyleTextInput";
 
 
 const arrTypes = [{
@@ -24,8 +22,9 @@ const arrTypes = [{
 
 export default function PermissionPage() {
     const navigation = useNavigation();
-    const [number, onChangeNumber] = React.useState('');
+    const [hours, setHours] = React.useState('');
     const [toggle, setToggle] = React.useState(false);
+    const [hidden, setHidden] = React.useState(false);
     const [comments, setComments] = React.useState("Motivos");
 
     const onClickStates = () => {
@@ -34,6 +33,27 @@ export default function PermissionPage() {
 
     const onChangeComments = (text) => {
         setComments(text)
+    }
+
+    const onChangeHours = (value) => {
+        value = value.replace(/[^0-9]/g, '');
+        setHours(value)
+    }
+
+    const onSelectType = (item) => {
+        const visible = (item.name !== 'Administrativo')
+        setHidden(visible);
+    }
+
+    const onAplyWorkingDay = () => {
+        setHours('9')
+    }
+
+    const onNotAplyWorkingDay = () => {
+        setHours('1')
+    }
+
+    const onSearchRequest =  (value) => {
     }
 
     return (
@@ -48,44 +68,47 @@ export default function PermissionPage() {
                                 numColumns={2}
                                 data={arrTypes}
                                 keyExtractor={(item, index) => index.toString()}
-                                renderItem={({ item }) => (<BoxTypePermission elements={item} />)}
+                                renderItem={({ item }) => (<BoxTypePermission elements={item} selectType={onSelectType} />)}
                             >
                             </FlatList>
                         </SafeAreaView>
                         <View style={styles.form}>
                             <StyledText align='left' fontWeight="bold" style={styles.select}>Selecciona</StyledText>
-                            <View style={{ display: 'flex' }}>
+                            <View style={{ display: hidden ? 'none' : 'flex' }}>
                                 <TextInput
                                     style={styles.input}
-                                    onChangeText={onChangeNumber}
-                                    value={number}
+                                    onChangeText={onChangeHours}
+                                    value={hours}
                                     placeholder="Horas a tomar"
                                     keyboardType="numeric"
                                 />
                                 <View style={styles.containerToggle}>
-                                    <Toggle toggle={toggle} setToggle={setToggle} style={styles.toggle} />
+                                    <Toggle toggle={toggle} setToggle={setToggle} style={styles.toggle} onTrue={onAplyWorkingDay} onFalse={onNotAplyWorkingDay} />
                                     <StyledText align='left' style={styles.labelToggle}>Jornada Completa</StyledText>
                                 </View>
-                                <View style={{ margin: 10 }}>
-                                    <DateRangeInput />
-                                </View>
-                                <TextInput
-                                    editable
-                                    multiline
-                                    numberOfLines={4}
-                                    maxLength={255}
-                                    placeholder="Motivos"
-                                    onChangeText={text => onChangeComments(text)}
-                                    value={comments}
-                                    style={{ margin: 10, padding: 10, borderColor: "black", borderWidth: 1, borderRadius: 5 }}
-                                />
-                                 <View style={{ margin: 10 }}>
+                            </View>
+                            <View style={{ margin: 10 }}>
+                                <DateRangeInput />
+                            </View>
+                            <TextInput
+                                editable
+                                multiline
+                                numberOfLines={4}
+                                maxLength={255}
+                                placeholder="Motivos"
+                                onChangeText={text => onChangeComments(text)}
+                                value={comments}
+                                style={{ margin: 10, padding: 10, borderColor: "black", borderWidth: 1, borderRadius: 5 }}
+                            />
+                            <View style={{ margin: 10 }}>
+                                <SearchInput placeHolder="Buscar..." searchEvent={onSearchRequest}/>
+                            </View>
+                            <View style={{ margin: 10 }}>
                                 <Button
                                     disabled
                                     title="Solicitar"
                                     color="#0F8847"
                                 />
-                                </View>
                             </View>
                         </View>
                     </ScrollView>

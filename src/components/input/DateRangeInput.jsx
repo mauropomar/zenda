@@ -12,8 +12,11 @@ import 'intl/locale-data/jsonp/en'; // or any other locale you need
 
 
 const DateRangeInput = () => {
-    const [value, setValue] = useState("");
-    const [range, setRange] = React.useState({ startDate: undefined, endDate: undefined });
+    const today = new Date();
+    const start = DateUtil.convertToString(today, "DD/MM/YYYY");
+    const end = DateUtil.convertToString(today, "DD/MM/YYYY");
+    const [value, setValue] = useState(`${start} - ${end}`);
+    const [range, setRange] = React.useState({ startDate: today, endDate: today });
     const [open, setOpen] = React.useState(false);
 
     const onDismiss = React.useCallback(() => {
