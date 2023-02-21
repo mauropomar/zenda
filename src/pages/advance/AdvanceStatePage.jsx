@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, ImageBackground, SafeAreaView, ScrollView, FlatList } from 'react-native';
+import { View, StyleSheet, ImageBackground, SafeAreaView, ScrollView, FlatList, Dimensions } from 'react-native';
 import HeaderTitle from "../../components/header/HeaderTitle";
 import BottomToolbar from '../../components/toolbar/BottomToolbar';
 import ItemAdvanceState from "../../components/advance/ItemAdvanceState";
@@ -34,6 +34,8 @@ const renderSeparator = () => (
     />
 );
 
+const deviceHeight = Dimensions.get('window').height - 150;
+
 export default function AdvanceStatePage() {
     return (
         <View style={styles.container}>
@@ -41,7 +43,7 @@ export default function AdvanceStatePage() {
                 <HeaderTitle title="Estados de anticipos"/>
                 <SafeAreaView style={styles.list}>
                     <ScrollView>
-                        <FlatList
+                        <FlatList style={{height:deviceHeight}}
                             data={DATA}
                             ItemSeparatorComponent={renderSeparator}
                             renderItem={({ item }) => <ItemAdvanceState element={item} />}
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
     }, 
     list: {
         flex: 1,
-        marginTop: 40,
+        marginTop: 50,
     },  
     image: {
         flex: 1

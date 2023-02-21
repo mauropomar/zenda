@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, ImageBackground, SafeAreaView, ScrollView, FlatList } from 'react-native';
+import { View, StyleSheet, ImageBackground, SafeAreaView, ScrollView, FlatList, Dimensions } from 'react-native';
 import HeaderTitle from "../../components/header/HeaderTitle";
 import BottomToolbar from '../../components/toolbar/BottomToolbar';
 import ItemPermissionReport from "../../components/permission/ItemPermissionReport";
@@ -46,14 +46,16 @@ const renderSeparator = () => (
     />
 );
 
+const deviceHeight = Dimensions.get('window').height - 150;
 export default function PermissionReportPage() {
+    console.log(deviceHeight);
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
                 <HeaderTitle title="Estados de permisos"/>
                 <SafeAreaView style={styles.list}>
                     <ScrollView>
-                        <FlatList
+                        <FlatList style={{height:deviceHeight}}
                             data={DATA}
                             ItemSeparatorComponent={renderSeparator}
                             renderItem={({ item }) => <ItemPermissionReport element={item} />}
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
     }, 
     list: {
         flex: 1,
-        marginTop: 50,
+        marginTop: 50
     },  
     image: {
         flex: 1
