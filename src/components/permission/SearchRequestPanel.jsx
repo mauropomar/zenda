@@ -1,4 +1,4 @@
-import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, StyleSheet } from "react-native";
 import StyledText from "../input/StyledText";
 import { Foundation } from '@expo/vector-icons';
 
@@ -20,9 +20,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
-    },
-    textHeader: {
-        
     }
 });
 

@@ -19,6 +19,7 @@ import SubFolderDocumentPage from '../pages/document/SubFolderDocument';
 import DocumentPage from '../pages/document/DocumentPage';
 import CancelDocumentPage from "../pages/document/CancelDocumentPage";
 import PermissionPage from '../pages/permission/PermissionPage';
+import PermissionReportPage from '../pages/permission/PermissionReportPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -137,6 +138,13 @@ function MainStack() {
                 <Stack.Screen
                     name="Permission"
                     component={PermissionPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="PermissionReport"
+                    component={PermissionReportPage}
                     options={{
                         headerShown: false
                     }}

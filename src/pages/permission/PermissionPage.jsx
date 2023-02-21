@@ -28,8 +28,8 @@ export default function PermissionPage() {
     const [hidden, setHidden] = React.useState(false);
     const [comments, setComments] = React.useState("Motivos");
 
-    const onClickStates = () => {
-        navigation.navigate('PermissionState');
+    const onViewReports = () => {
+        navigation.navigate('PermissionReport');
     }
 
     const onChangeComments = (text) => {
@@ -60,7 +60,7 @@ export default function PermissionPage() {
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
-                <HeaderTitle title="Solicitar Permisos" linkText="Ver estados" clickStates={onClickStates} />
+                <HeaderTitle title="Solicitar Permisos" linkText="Ver reportes" clickStates={onViewReports} />
                 <ScrollView style={styles.view}>
                         <SafeAreaView>
                             <FlatList
