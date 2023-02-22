@@ -7,6 +7,7 @@ import HeaderTitle from "../../components/header/HeaderTitle";
 import BottomToolbar from '../../components/toolbar/BottomToolbar';
 import StyledText from "../../components/input/StyledText";
 import DatePickerInput from "../../components/input/DatePickerInput";
+import DayTakeCollapse from "../../components/vacation/DayTakeCollapse";
 import StyledTextInput from "../../components/input/StyleTextInput";
 
 
@@ -15,6 +16,7 @@ export default function VacationPage() {
     const navigation = useNavigation();
     const [progresive, setProgresive] = React.useState(0);
     const [aditional, setAditional] = React.useState(0);
+    const [daysValid, setDayValid] = React.useState(60);
 
     const onViewReport = () => {
         navigation.navigate('VacationReport');
@@ -59,6 +61,27 @@ export default function VacationPage() {
                                 keyboardType="numeric"
                             />
                         </View>
+                        <StyledText align='left' fontWeight="bold" style={{ fontSize: 10, marginTop: 5, color: "red" }}>La cantidad de días no puede ser mayor que {daysValid}</StyledText>
+                        <StyledText align='left' fontWeight="bold" style={{ fontSize: 15, marginTop: 10 }}>Resumen</StyledText>
+                        <DayTakeCollapse
+                            days="57"
+                            totalDays="100"
+                            regularStartDays="10"
+                            regularLimitDays="88"
+                            progressiveStartDays="5"
+                            progressiveLimitDays="5"
+                            aditionalStartDays="0"
+                            aditionalLimitDays="0"
+                            incorporateDate="2023-10-12"
+                        />
+                        <StyledText align='left' fontWeight="bold" style={{ fontSize: 15, marginTop: 5 }}>Solicitudes a aprobar (10)</StyledText>
+                    </View>
+                    <View style={{ margin: 10 }}>
+                        <Button
+                            disabled
+                            title="Solicitar"
+                            color="#0F8847"
+                        />
                     </View>
                 </ScrollView>
                 <BottomToolbar />
