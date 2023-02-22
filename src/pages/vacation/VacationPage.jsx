@@ -1,16 +1,15 @@
 import React from "react";
-import { View, StyleSheet, ImageBackground, ScrollView, Image, Button, TextInput } from 'react-native';
+import { View, StyleSheet, ImageBackground, ScrollView, Button, TextInput, Dimensions } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
-import { MaterialIcons } from '@expo/vector-icons';
-import { Formik, useField } from "formik";
 import HeaderTitle from "../../components/header/HeaderTitle";
 import BottomToolbar from '../../components/toolbar/BottomToolbar';
 import StyledText from "../../components/input/StyledText";
 import DatePickerInput from "../../components/input/DatePickerInput";
 import DayTakeCollapse from "../../components/vacation/DayTakeCollapse";
-import StyledTextInput from "../../components/input/StyleTextInput";
+import RequestVacationList from "../../components/vacation/RequestVacationList";
 
 
+const deviceHeight = Dimensions.get('window').height - 220;
 
 export default function VacationPage() {
     const navigation = useNavigation();
@@ -36,9 +35,13 @@ export default function VacationPage() {
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
                 <HeaderTitle title="Solicitar Vacaciones" linkText="Ver reportes" clickStates={onViewReport} />
-                <ScrollView style={styles.view}>
-                    <StyledText align='center' fontWeight="bold" style={styles.title}>Seleccioné las fechas</StyledText>
-                    <View style={styles.form}>
+                <View style={styles.view}>
+                    <ScrollView style={{
+                        margin: 10,
+                        maxHeight: deviceHeight
+                    }}>
+                        <StyledText align='left' fontWeight="bold" style={{ fontSize: 15 }}>Seleccioné las fechas</StyledText>
+                    
                         <View style={styles.fieldDate}>
                             <DatePickerInput format="DD/MM/YY" placeHolder="Fecha Inicio" />
                         </View>
@@ -61,7 +64,7 @@ export default function VacationPage() {
                                 keyboardType="numeric"
                             />
                         </View>
-                        <StyledText align='left' fontWeight="bold" style={{ fontSize: 10, marginTop: 5, color: "red" }}>La cantidad de días no puede ser mayor que {daysValid}</StyledText>
+                        <StyledText align='left' fontWeight="bold" style={{ fontSize: 10, marginTop: 5, color: "red", display:'none' }}>La cantidad de días no puede ser mayor que {daysValid}</StyledText>
                         <StyledText align='left' fontWeight="bold" style={{ fontSize: 15, marginTop: 10 }}>Resumen</StyledText>
                         <DayTakeCollapse
                             days="57"
@@ -74,16 +77,16 @@ export default function VacationPage() {
                             aditionalLimitDays="0"
                             incorporateDate="2023-10-12"
                         />
-                        <StyledText align='left' fontWeight="bold" style={{ fontSize: 15, marginTop: 5 }}>Solicitudes a aprobar (10)</StyledText>
-                    </View>
+                        <StyledText align='left' fontWeight="bold" style={{ fontSize: 15, marginVertical: 5 }}>Solicitudes a aprobar (10)</StyledText>
+                        <RequestVacationList />
+                    </ScrollView>
                     <View style={{ margin: 10 }}>
                         <Button
-                            disabled
                             title="Solicitar"
                             color="#0F8847"
                         />
                     </View>
-                </ScrollView>
+                </View>
                 <BottomToolbar />
             </ImageBackground>
         </View>
@@ -100,16 +103,10 @@ const styles = StyleSheet.create({
     },
     view: {
         flex: 1,
-        marginTop: 50
-    },
-    form: {
-        margin: 10
+        marginTop: 40
     },
     image: {
         flex: 1
-    },
-    title: {
-        fontSize: 24
     },
     fieldDate: {
         marginVertical: 10

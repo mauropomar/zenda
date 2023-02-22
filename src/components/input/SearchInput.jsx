@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         height: 50,
         borderWidth: 0.6,
         borderRadius: 10,
-        marginBottom: 20
+        marginBottom: 10
     },
     prefixIcon: {
         marginVertical: 15,

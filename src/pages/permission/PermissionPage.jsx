@@ -10,7 +10,6 @@ import SearchInput from "../../components/input/SearchInput";
 import StyledText from "../../components/input/StyledText";
 import SearchRequestPanel from "../../components/permission/SearchRequestPanel";
 
-
 const arrTypes = [{
     id: 1,
     name: 'Administrativo',
