@@ -7,6 +7,7 @@ import StyledText from "../../components/input/StyledText";
 import DatePickerInput from "../../components/input/DatePickerInput";
 import DayTakeCollapse from "../../components/vacation/DayTakeCollapse";
 import RequestVacationList from "../../components/vacation/RequestVacationList";
+import { PopupApproved } from "../../components/vacation/PopupApproved";
 
 
 const deviceHeight = Dimensions.get('window').height - 220;
@@ -16,6 +17,21 @@ export default function VacationPage() {
     const [progresive, setProgresive] = React.useState(0);
     const [aditional, setAditional] = React.useState(0);
     const [daysValid, setDayValid] = React.useState(60);
+
+
+    let popupOptionRef = React.createRef();
+
+    const onShowPopupOption = (itemRequest) => {
+        popupOptionRef.show();
+    }
+
+    const onClosePopupOption = () => {
+        popupOptionRef.close();
+    }
+
+    const onClickMenuOption = (option) => {
+        popupOptionRef.close();
+    }
 
     const onViewReport = () => {
         navigation.navigate('VacationReport');
@@ -41,7 +57,7 @@ export default function VacationPage() {
                         maxHeight: deviceHeight
                     }}>
                         <StyledText align='left' fontWeight="bold" style={{ fontSize: 15 }}>Seleccioné las fechas</StyledText>
-                    
+
                         <View style={styles.fieldDate}>
                             <DatePickerInput format="DD/MM/YY" placeHolder="Fecha Inicio" />
                         </View>
@@ -64,7 +80,7 @@ export default function VacationPage() {
                                 keyboardType="numeric"
                             />
                         </View>
-                        <StyledText align='left' fontWeight="bold" style={{ fontSize: 10, marginTop: 5, color: "red", display:'none' }}>La cantidad de días no puede ser mayor que {daysValid}</StyledText>
+                        <StyledText align='left' fontWeight="bold" style={{ fontSize: 10, marginTop: 5, color: "red", display: 'none' }}>La cantidad de días no puede ser mayor que {daysValid}</StyledText>
                         <StyledText align='left' fontWeight="bold" style={{ fontSize: 15, marginTop: 10 }}>Resumen</StyledText>
                         <DayTakeCollapse
                             days="57"
@@ -78,7 +94,7 @@ export default function VacationPage() {
                             incorporateDate="2023-10-12"
                         />
                         <StyledText align='left' fontWeight="bold" style={{ fontSize: 15, marginVertical: 5 }}>Solicitudes a aprobar (10)</StyledText>
-                        <RequestVacationList />
+                        <RequestVacationList onSelectItem={onShowPopupOption}/>
                     </ScrollView>
                     <View style={{ margin: 10 }}>
                         <Button
@@ -87,6 +103,12 @@ export default function VacationPage() {
                         />
                     </View>
                 </View>
+                <PopupApproved
+                    title="Opciones"
+                    onSelectItem={onClickMenuOption}
+                    ref={(target) => popupOptionRef = target}
+                    onTouchOutside={onClosePopupOption}
+                />
                 <BottomToolbar />
             </ImageBackground>
         </View>
