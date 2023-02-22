@@ -1,25 +1,72 @@
 import React from "react";
-import { View, StyleSheet, ImageBackground, Image, Button } from 'react-native';
-import { useNavigation } from "@react-navigation/native";
-import { MaterialIcons } from '@expo/vector-icons';
-import { Formik, useField } from "formik";
+import { View, StyleSheet, ImageBackground, SafeAreaView, ScrollView, FlatList, Dimensions } from 'react-native';
 import HeaderTitle from "../../components/header/HeaderTitle";
 import BottomToolbar from '../../components/toolbar/BottomToolbar';
-import StyledText from "../../components/input/StyledText";
-import StyledTextInput from "../../components/input/StyleTextInput";
+import ItemVacationReport from "../../components/vacation/ItemVacationReport";
 
+const DATA = [
+    {
+        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        dateRequest: '2023-02-09',
+        daysAditional:3,
+        daysRegular: 2,
+        daysArt68: 3,
+        startDate:'2023-02-09',
+        endDate:'2023-02-19',
+        state: 'Aprobado'
+    },
+    {
+        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        dateRequest: '2023-04-19',
+        daysAditional:13,
+        daysRegular: 5,
+        daysArt68: 3,
+        startDate:'2023-02-10',
+        endDate:'2023-04-19',
+        state: 'Rechazado'
+    },
+    {
+        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        dateRequest: '2023-07-20',
+        daysAditional:3,
+        daysRegular: 12,
+        daysArt68: 7,
+        startDate:'2023-02-10',
+        endDate:'2023-04-19',
+        state: 'En espera'
+    },
+];
 
+const renderSeparator = () => (
+    <View
+        style={{
+            backgroundColor: '#F4F7F8',
+            height: 5,
+        }}
+    />
+);
 
+const deviceHeight = Dimensions.get('window').height - 150;
 export default function VacationReportPage() {
-
+    console.log(deviceHeight);
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
-                <HeaderTitle title="Estados de vacaciones" />
-                
+                <HeaderTitle title="Estados de vacaciones"/>
+                <SafeAreaView style={styles.list}>
+                    <ScrollView>
+                        <FlatList style={{height:deviceHeight}}
+                            data={DATA}
+                            ItemSeparatorComponent={renderSeparator}
+                            renderItem={({ item }) => <ItemVacationReport element={item} />}
+                            keyExtractor={item => item.id}
+                        />
+                    </ScrollView>
+                </SafeAreaView>
                 <BottomToolbar />
             </ImageBackground>
         </View>
+
     )
 }
 
@@ -27,60 +74,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center'
-    },
-    containerInfo: {
-        flexDirection: 'row',
-        marginTop: 50,
-        borderColor: 'black',
-        borderWidth: 0.5,
-        borderRadius: 10,
-        marginHorizontal: 10
-    },
-    containerText: {
-        marginVertical: 20,
-        marginLeft: 15,
+    }, 
+    list: {
         flex: 1,
-    },
-    form: {
-        marginTop: 30,
-        marginHorizontal: 5,
-        flex: 1,
-    },
+        marginTop: 50
+    },  
     image: {
         flex: 1
-    },
-    title: {
-        fontSize: 24
-    },
-    icon: {
-        marginVertical: 25,
-        marginLeft: 10
-    },
-    containerInput: {
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-        height: 50,
-        borderWidth: 0.6,
-        borderRadius: 10,
-        marginBottom: 20
-    },
-    textInput: {
-        fontSize: 20,
-        marginLeft: 10,
-    },
-    input: {
-        width: '98%',
-        marginLeft: -10
-    },
-    iconInput: {
-        marginTop: 15,
-        marginLeft: 5,
-    },
-    error: {
-        color: "red",
-        fontSize: 12,
-        marginBottom: 20,
-        marginTop: -5,
     }
 });
