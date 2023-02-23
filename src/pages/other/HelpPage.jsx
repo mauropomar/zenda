@@ -1,5 +1,5 @@
-import React from "react";
-import { View, StyleSheet, ImageBackground, SafeAreaView, FlatList, TouchableOpacity, Image } from 'react-native';
+import React, { useCallback } from 'react';
+import { View, StyleSheet, ImageBackground, SafeAreaView, FlatList, TouchableOpacity, Image, Linking } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import BottomToolbar from "../../components/toolbar/BottomToolbar";
@@ -15,8 +15,17 @@ const DATA = [
 const ItemMenu = ({ element }) => {
     const navigation = useNavigation();
     const onSelectMenu = () => {
-        navigation.navigate(element.route);
+        if (element.id === 1) {
+            sendEmail('mailto:contacto@defontana.com?subject=Contáctanos desde Zenda app');
+        } else {
+            navigation.navigate(element.route);
+        }
     }
+
+    const sendEmail = async (url) => {
+        await Linking.openURL(url);
+    };
+
     return (
         <>
             <TouchableOpacity onPress={onSelectMenu}>

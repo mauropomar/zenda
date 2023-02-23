@@ -5,10 +5,10 @@ import StyledText from "../../components/input/StyledText";
 import HeaderAccount from "../../components/header/HeaderAccount";
 
 const DATA = [
-    { id: 1, name: 'Mi cuenta', description: 'Información General', route:'Account',  icon: require('../../../assets/icons/person.png') },
-    { id: 2, name: 'Estados de solicitudes', description: 'Revisar solictudes enviadas', route:'StateRequest', icon: require('../../../assets/icons/states.png') },
-    { id: 3, name: 'Configuración', description: 'Configura tu app Zenda', route:'Setting', icon: require('../../../assets/icons/config.png') },
-    { id: 4, name: 'Ayuda', description: 'Centro de ayuda, contáctenos y privacidad', route:'Help', icon: require('../../../assets/icons/help.png') }
+    { id: 1, name: 'Mi cuenta', description: 'Información General', route: 'Account', icon: require('../../../assets/icons/person.png') },
+    { id: 2, name: 'Estados de solicitudes', description: 'Revisar solictudes enviadas', route: 'StateRequest', icon: require('../../../assets/icons/states.png') },
+    { id: 3, name: 'Configuración', description: 'Configura tu app Zenda', route: 'Setting', icon: require('../../../assets/icons/config.png') },
+    { id: 4, name: 'Ayuda', description: 'Centro de ayuda, contáctenos y privacidad', route: 'Help', icon: require('../../../assets/icons/help.png') }
 ]
 
 const ItemMenu = ({ element }) => {
@@ -48,6 +48,10 @@ const renderSeparator = () => (
 );
 
 export default function OtherOptionPage() {
+    const navigation = useNavigation();
+    const onShow = () => {
+        navigation.navigate("Login");
+    }
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
@@ -61,6 +65,11 @@ export default function OtherOptionPage() {
                     >
                     </FlatList>
                 </SafeAreaView>
+                <View style={styles.footer}>
+                    <TouchableOpacity onPress={onShow}>
+                        <StyledText align="center" style={styles.sesion}>Cerrar Sesión</StyledText>
+                    </TouchableOpacity>
+                </View>
             </ImageBackground>
         </View>
     )
@@ -86,5 +95,14 @@ const styles = StyleSheet.create({
     icon: {
         marginVertical: 6,
         marginHorizontal: 10
+    },
+    footer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        bottom: 0
+    },
+    sesion: {
+
     }
 });
