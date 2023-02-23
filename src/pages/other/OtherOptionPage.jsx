@@ -11,7 +11,6 @@ const DATA = [
     { id: 4, name: 'Ayuda', description: 'Centro de ayuda, contáctenos y privacidad', route:'Help', icon: require('../../../assets/icons/help.png') }
 ]
 
-
 const ItemMenu = ({ element }) => {
     const navigation = useNavigation();
     const onSelectMenu = () => {
@@ -47,7 +46,6 @@ const renderSeparator = () => (
         }}
     />
 );
-
 
 export default function OtherOptionPage() {
     return (

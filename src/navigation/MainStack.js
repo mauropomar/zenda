@@ -23,6 +23,8 @@ import VacationReportPage from '../pages/vacation/VacationReportPage';
 import StateRequestPage from '../pages/other/StateRequestPage';
 import HoursExtraReportPage from '../pages/hoursextra/HoursExtraReportPage';
 import SettingPage from '../pages/other/SettingPage';
+import HelpPage from '../pages/other/HelpPage';
+import ConditionPage from '../pages/other/ConditionPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -183,6 +185,20 @@ function MainStack() {
                 <Stack.Screen
                     name="Setting"
                     component={SettingPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="Help"
+                    component={HelpPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                 <Stack.Screen
+                    name="Condition"
+                    component={ConditionPage}
                     options={{
                         headerShown: false
                     }}
