@@ -25,6 +25,7 @@ import HoursExtraReportPage from '../pages/hoursextra/HoursExtraReportPage';
 import SettingPage from '../pages/other/SettingPage';
 import HelpPage from '../pages/other/HelpPage';
 import ConditionPage from '../pages/other/ConditionPage';
+import AccountPage from '../pages/other/AccountPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -199,6 +200,13 @@ function MainStack() {
                  <Stack.Screen
                     name="Condition"
                     component={ConditionPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                 <Stack.Screen
+                    name="Account"
+                    component={AccountPage}
                     options={{
                         headerShown: false
                     }}
