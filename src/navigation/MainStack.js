@@ -10,8 +10,6 @@ import ForgotPasswordPage from '../pages/auth/ForgotPasswordPage';
 import ResetPasswordPage from '../pages/auth/ResetPasswordPage';
 import ConfirmEmailPage from '../pages/auth/ConfirmEmailPage';
 import SplashPage from '../pages/splash/SplashPage';
-import HomeNavigationChile from './HomeNavigationChile';
-import HomeNavigationPeru from './HomeNavigationPeru';
 import BirthDayPage from '../pages/birthday/BirthDayPage';
 import AdvancePage from '../pages/advance/AdvancePage';
 import AdvanceStatePage from '../pages/advance/AdvanceStatePage';
@@ -22,6 +20,9 @@ import PermissionPage from '../pages/permission/PermissionPage';
 import PermissionReportPage from '../pages/permission/PermissionReportPage';
 import VacationPage from '../pages/vacation/VacationPage';
 import VacationReportPage from '../pages/vacation/VacationReportPage';
+import StateRequestPage from '../pages/other/StateRequestPage';
+import HoursExtraReportPage from '../pages/hoursextra/HoursExtraReportPage';
+import SettingPage from '../pages/other/SettingPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -161,6 +162,27 @@ function MainStack() {
                 <Stack.Screen
                     name="VacationReport"
                     component={VacationReportPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                 <Stack.Screen
+                    name="HoursReport"
+                    component={HoursExtraReportPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="StateRequest"
+                    component={StateRequestPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="Setting"
+                    component={SettingPage}
                     options={{
                         headerShown: false
                     }}

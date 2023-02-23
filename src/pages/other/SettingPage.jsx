@@ -1,34 +1,33 @@
 import React from "react";
-import { View, StyleSheet, ImageBackground, SafeAreaView, FlatList, TouchableOpacity, Image } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, StyleSheet, ImageBackground, SafeAreaView, FlatList, TouchableOpacity, Image, Switch } from 'react-native';
+import BottomToolbar from "../../components/toolbar/BottomToolbar";
 import StyledText from "../../components/input/StyledText";
-import HeaderAccount from "../../components/header/HeaderAccount";
+import HeaderTitle from "../../components/header/HeaderTitle";
 
 const DATA = [
-    { id: 1, name: 'Mi cuenta', description: 'Información General', route:'Account',  icon: require('../../../assets/icons/person.png') },
-    { id: 2, name: 'Estados de solicitudes', description: 'Revisar solictudes enviadas', route:'StateRequest', icon: require('../../../assets/icons/states.png') },
-    { id: 3, name: 'Configuración', description: 'Configura tu app Zenda', route:'Setting', icon: require('../../../assets/icons/config.png') },
-    { id: 4, name: 'Ayuda', description: 'Centro de ayuda, contáctenos y privacidad', route:'Help', icon: require('../../../assets/icons/help.png') }
+    { id: 1, name: 'Comando de voz', description: 'Activar o desactivar el comando de voz*' },
+    { id: 2, name: 'Huella digital', description: 'Activar o desactivar la huella difital*' }
 ]
 
-
 const ItemMenu = ({ element }) => {
-    const navigation = useNavigation();
-    const onSelectMenu = () => {
-        navigation.navigate(element.route);
-    }
-
+    const [isEnabled, setIsEnabled] = React.useState(false);
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return (
         <>
-            <TouchableOpacity onPress={onSelectMenu}>
+            <TouchableOpacity>
                 <View style={styles.item}>
-                    <View style={styles.icon}>
-                        <Image source={element.icon}
-                            style={styles.icon} />
-                    </View>
-                    <View>
+                    <View style={styles.containerLeft}>
                         <StyledText fontWeight="bold" style={{ marginRight: 10 }}>{element.name}</StyledText>
                         <StyledText>{element.description}</StyledText>
+                    </View>
+                    <View style={styles.containerRight}>
+                        <Switch
+                            trackColor={{ false: '#767577', true: '#0F8847' }}
+                            thumbColor={isEnabled ? '#0F8847' : '#f4f3f4'}
+                            ios_backgroundColor="#0F8847"
+                            onValueChange={toggleSwitch}
+                            value={isEnabled}
+                        />
                     </View>
                 </View>
             </TouchableOpacity>
@@ -49,11 +48,11 @@ const renderSeparator = () => (
 );
 
 
-export default function OtherOptionPage() {
+export default function StateRequestPage() {
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
-                <HeaderAccount username="Luisa Jimenez" email="icedeno@gmail.com" />
+                <HeaderTitle title="Configuración" />
                 <SafeAreaView style={styles.view}>
                     <FlatList
                         data={DATA}
@@ -63,6 +62,7 @@ export default function OtherOptionPage() {
                     >
                     </FlatList>
                 </SafeAreaView>
+                <BottomToolbar />
             </ImageBackground>
         </View>
     )
@@ -76,17 +76,25 @@ const styles = StyleSheet.create({
         flex: 1
     },
     view: {
-        marginTop: 20
+        marginTop: 40
     },
     item: {
         flex: 1,
         height: 50,
         marginVertical: 3,
         flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    containerLeft: {
+        flexDirection: 'row',
         justifyContent: 'flex-start'
     },
-    icon: {
-        marginVertical: 6,
+    containerLeft:{
+        paddingTop: 10,
+        paddingLeft:15
+    },
+    containerRight:{
+        marginVertical: 15,
         marginHorizontal: 10
     }
 });
