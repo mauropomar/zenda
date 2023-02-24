@@ -7,7 +7,7 @@ import { BottomPopup } from '../modal/BottomPopup';
 import StyledText from '../input/StyledText';
 
 
-const ToolbarPeru = (props) => {
+const ToolbarOthers = (props) => {
     return (
         <View style={styles.toolbar}>
             <TouchableOpacity onPress={props.onSelectHome}>
@@ -19,42 +19,6 @@ const ToolbarPeru = (props) => {
             <TouchableOpacity onPress={props.onSelectOption}>
                 <View style={styles.icon}>
                     <Ionicons name="add-circle" size={60} color={props.color} />
-                </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={props.onSelectOther}>
-                <View style={styles.icon}>
-                    <Ionicons name="ellipsis-vertical" size={24} color={props.color} />
-                    <StyledText style={styles.text}>Más</StyledText>
-                </View>
-            </TouchableOpacity>
-        </View>
-    )
-}
-
-const ToolbarColombia = (props) => {
-    return (
-        <View style={styles.toolbar}>
-            <TouchableOpacity onPress={props.onSelectHome}>
-                <View style={styles.icon}>
-                    <Ionicons name="home-outline" size={24} color={props.color} />
-                    <StyledText style={styles.text}>Inicio</StyledText>
-                </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={props.onSelectSettlement}>
-                <View style={styles.icon} >
-                    <MaterialIcons name="attach-money" size={24} color={props.color} />
-                    <StyledText style={styles.text}>Liquidación</StyledText>
-                </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={props.onSelectOption}>
-                <View style={styles.icon}>
-                    <Ionicons name="add-circle" size={60} color={props.color} />
-                </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={props.onSelectDocument}>
-                <View style={styles.icon}>
-                    <Ionicons name="document-text-outline" size={24} color={props.color} />
-                    <StyledText style={styles.text}>Documentos</StyledText>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={props.onSelectOther}>
@@ -104,7 +68,7 @@ const ToolbarChile = (props) => {
 }
 
 export default function BottomToolbar() {
-    let Toolbar = ToolbarPeru;
+    let Toolbar = ToolbarChile;
     let popupRef = React.createRef();
     const navigation = useNavigation();
     const color = "green";
@@ -139,11 +103,9 @@ export default function BottomToolbar() {
     if (GlobalUtil.countrie === 'CHILE') {
         Toolbar = ToolbarChile;
     } else {
-        if (GlobalUtil.countrie === 'PERU') {
-            Toolbar = ToolbarPeru;
-        } else {
-            Toolbar = ToolbarColombia;
-        }
+        if (GlobalUtil.countrie === 'PERU' || GlobalUtil.countrie === 'COLOMBIA') {
+            Toolbar = ToolbarOthers;
+        } 
     }
 
     return (
