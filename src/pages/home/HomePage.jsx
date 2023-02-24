@@ -13,7 +13,6 @@ export default function HomePage() {
                     <CardHome />                   
                 </ScrollView>
             </ImageBackground>
-
         </View>
     )
 }
@@ -23,7 +22,8 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     image: {
-        flex: 1
+        flex: 1,
+        height: '110%'
     },
     logo: {
         top: 10,

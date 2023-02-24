@@ -22,7 +22,7 @@ export default function HeaderAccount({ username, email }) {
 
 const styles = StyleSheet.create({
     container: {
-        paddingVertical: 5,
+        paddingVertical: 10,
         marginLeft: 10,
         justifyContent: 'flex-start',
         flexDirection: 'row'

@@ -32,9 +32,10 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     image: {
-        flex: 1
+        flex: 1,
+        height: '110%'
     },
-    view: {
-        marginTop: 20
+    view:{
+        marginTop:40
     }
 });
