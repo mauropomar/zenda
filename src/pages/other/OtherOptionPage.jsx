@@ -56,7 +56,7 @@ export default function OtherOptionPage() {
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
                 <HeaderAccount username="Luisa Jimenez" email="icedeno@gmail.com" />
-                <SafeAreaView style={styles.view}>
+                <SafeAreaView>
                     <FlatList
                         data={DATA}
                         ItemSeparatorComponent={renderSeparator}
@@ -81,9 +81,6 @@ const styles = StyleSheet.create({
     },
     image: {
         flex: 1
-    },
-    view: {
-        marginTop: 20
     },
     item: {
         flex: 1,

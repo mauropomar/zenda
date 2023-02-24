@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, View, StyleSheet, ImageBackground, SafeAreaView, ScrollView, FlatList } from 'react-native';
+import { Button, View, StyleSheet, ImageBackground, SafeAreaView, ScrollView, FlatList, Dimensions } from 'react-native';
 import { useRoute } from "@react-navigation/native";
 import * as FileSystem from 'expo-file-system';
 import BottomToolbar from "../../components/toolbar/BottomToolbar";
@@ -24,7 +24,7 @@ const DATA = [
         title: 'Finiquito 02/02/2023',
         url: 'https://www.africau.edu/images/default/sample.pdf',
         isSelected: false
-    },
+    }
 ];
 
 const renderSeparator = () => (
@@ -35,6 +35,8 @@ const renderSeparator = () => (
         }}
     />
 );
+
+const deviceHeight = Dimensions.get('window').height - 200;
 
 const DocumentPage = () => {
     const [documents, setDocuments] = useState(DATA);
@@ -73,8 +75,8 @@ const DocumentPage = () => {
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
                 <HeaderTitle title={titleFolder} />
-                <SafeAreaView style={styles.list}>
-                    <ScrollView>
+                <SafeAreaView>
+                   <ScrollView style={styles.scrollView}>
                         <FlatList
                             data={documents}
                             ItemSeparatorComponent={renderSeparator}
@@ -100,10 +102,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    list: {
-        flex: 1,
-        marginTop: 40,
-        height: 200
+    scrollView: {
+        marginTop: 50,
+        marginHorizontal: 5,
+        height: deviceHeight
     },
     item: {
         backgroundColor: '#f9c2ff',
@@ -121,7 +123,7 @@ const styles = StyleSheet.create({
         width: '95%',
         alignItems: 'center',
         position: 'absolute',
-        bottom: 60,
+        bottom: 0,
         margin: 10
     },
     buttonHide: {

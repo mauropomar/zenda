@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, ImageBackground, Image, SafeAreaView, FlatList, ScrollView } from 'react-native';
+import { View, StyleSheet, ImageBackground, Image, SafeAreaView, FlatList, ScrollView, Dimensions } from 'react-native';
 import { useRoute } from "@react-navigation/native";
 import BoxFolder from '../../components/document/BoxFolder';
 import HeaderTitle from "../../components/header/HeaderTitle";
@@ -10,8 +10,12 @@ const arr = [
     { id: 2, name: 'Liquidaciones' },
     { id: 3, name: 'Contrato' },
     { id: 4, name: 'Pañales' },
-    { id: 5, name: 'Anexos' },
+    { id: 5, name: 'Firmas Digitales' },
+    { id: 6, name: 'Aprobaciones de Cheques' },
+    { id: 6, name: 'Anexos 90' }
 ]
+
+const deviceHeight = Dimensions.get('window').height - 200;
 
 export default function SubFolderDocumentPage() {
     const route = useRoute();
@@ -20,8 +24,8 @@ export default function SubFolderDocumentPage() {
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
                 <HeaderTitle title={title} />
-                <SafeAreaView style={styles.view}>
-                    <ScrollView>
+                <SafeAreaView>
+                    <ScrollView style={styles.scrollView}>
                         <FlatList
                             numColumns={2}
                             data={arr}
@@ -30,9 +34,9 @@ export default function SubFolderDocumentPage() {
                         >
                         </FlatList>
                     </ScrollView>
-                   
+
                 </SafeAreaView>
-                <BottomToolbar/>
+                <BottomToolbar />
             </ImageBackground>
         </View>
     )
@@ -46,6 +50,11 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     view: {
-        marginTop: 40
+        marginTop: 50
+    },
+    scrollView: {
+        marginTop: 50,
+        marginHorizontal: 5,
+        height: deviceHeight
     }
 });

@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-
     section: {
         flexDirection: 'row',
         gap: 1,

@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     view: {
-        marginTop: 60
+        marginTop: 50
     },
     item: {
         flex: 1,
