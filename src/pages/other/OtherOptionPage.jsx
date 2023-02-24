@@ -102,7 +102,5 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         bottom: 0
     },
-    sesion: {
-
-    }
+    
 });

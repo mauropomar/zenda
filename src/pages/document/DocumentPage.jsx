@@ -90,7 +90,7 @@ const DocumentPage = () => {
                         />
                     </View>
                 </SafeAreaView>
-                <BottomToolbar/>
+                <BottomToolbar />
             </ImageBackground>
         </View>
     )
@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
     list: {
         flex: 1,
         marginTop: 40,
+        height: 200
     },
     item: {
         backgroundColor: '#f9c2ff',
@@ -118,10 +119,13 @@ const styles = StyleSheet.create({
     },
     button: {
         width: '95%',
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: 60,
         margin: 10
     },
     buttonHide: {
-        display: 'none'
+        display: 'none',
     }
 });
 
