@@ -1,7 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import GlobalUtil from '../utils/global';
 import StackScreen from '../pages/screen/StackScreen';
 import IntroPage from '../pages/auth/IntroPage';
 import LoginPage from '../pages/auth/LoginPage';
@@ -26,23 +25,20 @@ import SettingPage from '../pages/other/SettingPage';
 import HelpPage from '../pages/other/HelpPage';
 import ConditionPage from '../pages/other/ConditionPage';
 import AccountPage from '../pages/other/AccountPage';
+import HomePage from '../pages/home/HomePage';
+import OtherOptionPage from '../pages/other/OtherOptionPage';
+import FolderDocumentPage from '../pages/document/FolderDocumentPage';
+import AttendancePage from '../pages/attendance/AttendancePage';
+import SettlementPage from '../pages/settlement/SettlementPage';
 
 const Stack = createNativeStackNavigator();
 
 function MainStack() {
-    const HomeNavigation = GlobalUtil.getHomeNavigation();
     return (
         <NavigationContainer>
             <Stack.Navigator
                 initialRouteName='Intro'
             >
-                <Stack.Screen
-                    name="HomeNavigation"
-                    component={HomeNavigation}
-                    options={{
-                        headerShown: false
-                    }}
-                />
                 <Stack.Screen
                     name="Intro"
                     component={IntroPage}
@@ -88,6 +84,41 @@ function MainStack() {
                 <Stack.Screen
                     name="ResetPassword"
                     component={ResetPasswordPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="Home"
+                    component={HomePage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="Others"
+                    component={OtherOptionPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="FolderDocument"
+                    component={FolderDocumentPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="Attendance"
+                    component={AttendancePage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="Settlement"
+                    component={SettlementPage}
                     options={{
                         headerShown: false
                     }}
@@ -169,7 +200,7 @@ function MainStack() {
                         headerShown: false
                     }}
                 />
-                 <Stack.Screen
+                <Stack.Screen
                     name="HoursReport"
                     component={HoursExtraReportPage}
                     options={{
@@ -197,14 +228,14 @@ function MainStack() {
                         headerShown: false
                     }}
                 />
-                 <Stack.Screen
+                <Stack.Screen
                     name="Condition"
                     component={ConditionPage}
                     options={{
                         headerShown: false
                     }}
                 />
-                 <Stack.Screen
+                <Stack.Screen
                     name="Account"
                     component={AccountPage}
                     options={{

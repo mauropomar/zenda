@@ -17,15 +17,13 @@ export default function BoxFolder({ elements, isSubFolder }) {
     }
 
     return (
-        <View style={styles.container}>
-            <TouchableOpacity onPress={onShowSubFolder}>
-                <Image source={require('../../../assets/icons/document.png')}
-                    style={styles.icon} />
-                <View style={styles.containerText}>
-                    <StyledText align='center'>{name}</StyledText>
-                </View>
-            </TouchableOpacity>
-        </View>
+        <TouchableOpacity onPress={onShowSubFolder} style={styles.container}>
+            <Image source={require('../../../assets/icons/document.png')}
+                style={styles.icon} />
+            <View style={styles.containerText}>
+                <StyledText align='center'>{name}</StyledText>
+            </View>
+        </TouchableOpacity>
     )
 }
 

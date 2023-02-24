@@ -110,33 +110,23 @@ export default function BottomToolbar() {
     const color = "green";
 
     const onSelectHome = () => {
-        navigation.navigate('HomeNavigation', {
-            screen: 'Home'
-        });
+        navigation.navigate('Home');
     }
 
     const onSelectOther = () => {
-        navigation.navigate('HomeNavigation', {
-            screen: 'Others'
-        });
+        navigation.navigate('Others');
     }
 
     const onSelectSettlement = () => {
-        navigation.navigate('HomeNavigation', {
-            screen: 'Settlement'
-        });
+        navigation.navigate('Settlement');
     }
 
     const onSelectDocument = () => {
-        navigation.navigate('HomeNavigation', {
-            screen: 'FolderDocument'
-        });
+        navigation.navigate('FolderDocument');
     }
 
     const onSelectAttendance = () => {
-        navigation.navigate('HomeNavigation', {
-            screen: 'Attendance'
-        });
+        navigation.navigate('Attendance');
     }
 
     const onSelectOption = () => {

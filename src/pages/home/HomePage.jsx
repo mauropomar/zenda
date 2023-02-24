@@ -1,17 +1,21 @@
 import React from "react";
-import { View, StyleSheet, ImageBackground, ScrollView } from "react-native";
+import { View, StyleSheet, ImageBackground, ScrollView, SafeAreaView, Dimensions } from "react-native";
 import HeaderPrincipal from "../../components/header/HeaderPrincipal";
+import BottomToolbar from '../../components/toolbar/BottomToolbar';
 import CardHome from "../../components/home/CardHome";
 
-
+const deviceHeight = Dimensions.get('window').height - 160;
 export default function HomePage() {
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>
                 <HeaderPrincipal username="Luisa Jimenez" />
-                <ScrollView>
-                    <CardHome />                   
-                </ScrollView>
+                <SafeAreaView>
+                    <ScrollView style={styles.scrollView}>
+                        <CardHome />
+                    </ScrollView>
+                </SafeAreaView>
+                <BottomToolbar />
             </ImageBackground>
         </View>
     )
@@ -23,7 +27,6 @@ const styles = StyleSheet.create({
     },
     image: {
         flex: 1,
-        height: '110%'
     },
     logo: {
         top: 10,
@@ -33,4 +36,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    scrollView: {
+        marginHorizontal: 5,
+        height: deviceHeight
+    }
 });

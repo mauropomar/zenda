@@ -1,6 +1,7 @@
 import React from "react";
-import { View, StyleSheet, ImageBackground, Image, SafeAreaView, FlatList, ScrollView } from 'react-native';
+import { View, StyleSheet, ImageBackground, SafeAreaView, FlatList} from 'react-native';
 import BoxFolder from '../../components/document/BoxFolder';
+import BottomToolbar from '../../components/toolbar/BottomToolbar';
 import HeaderTitle from "../../components/header/HeaderTitle";
 
 const arr = [
@@ -22,6 +23,7 @@ export default function FolderDocumentPage() {
                     >
                     </FlatList>
                 </SafeAreaView>
+                <BottomToolbar />
             </ImageBackground>
         </View>
     )
@@ -33,7 +35,6 @@ const styles = StyleSheet.create({
     },
     image: {
         flex: 1,
-        height: '110%'
     },
     view:{
         marginTop:40

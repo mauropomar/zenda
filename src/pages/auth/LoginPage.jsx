@@ -48,7 +48,7 @@ export default function LoginPage() {
   }
 
   const onLoginPress = (event) => {
-    navigation.navigate("HomeNavigation")
+    navigation.navigate("Home")
   }
 
   return (

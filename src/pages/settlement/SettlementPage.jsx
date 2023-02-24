@@ -5,6 +5,7 @@ import DatePickerInput from "../../components/input/DatePickerInput";
 import { loginValidationSchema } from "../../validationSchemas/LoginSchema";
 import StyledTextInput from "../../components/input/StyleTextInput";
 import StyledText from "../../components/input/StyledText";
+import BottomToolbar from '../../components/toolbar/BottomToolbar';
 import HeaderTitle from "../../components/header/HeaderTitle";
 
 
@@ -56,6 +57,7 @@ export default function SettlementPage() {
                         }}
                     </Formik>
                 </View>
+                <BottomToolbar />
             </ImageBackground>
         </View>
     )

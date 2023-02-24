@@ -15,7 +15,7 @@ const arr = [
     { id: 6, name: 'Anexos 90' }
 ]
 
-const deviceHeight = Dimensions.get('window').height - 200;
+const deviceHeight = Dimensions.get('window').height - 160;
 
 export default function SubFolderDocumentPage() {
     const route = useRoute();

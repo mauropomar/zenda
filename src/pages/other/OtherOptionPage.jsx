@@ -2,6 +2,7 @@ import React from "react";
 import { View, StyleSheet, ImageBackground, SafeAreaView, FlatList, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import StyledText from "../../components/input/StyledText";
+import BottomToolbar from '../../components/toolbar/BottomToolbar';
 import HeaderAccount from "../../components/header/HeaderAccount";
 
 const DATA = [
@@ -70,6 +71,7 @@ export default function OtherOptionPage() {
                         <StyledText align="center" style={styles.sesion}>Cerrar Sesión</StyledText>
                     </TouchableOpacity>
                 </View>
+                <BottomToolbar />
             </ImageBackground>
         </View>
     )
@@ -83,8 +85,7 @@ const styles = StyleSheet.create({
       marginTop: 20
     },
     image: {
-        flex: 1,
-        height: '110%'
+        flex: 1
     },
     item: {
         flex: 1,
