@@ -30,6 +30,7 @@ import OtherOptionPage from '../pages/other/OtherOptionPage';
 import FolderDocumentPage from '../pages/document/FolderDocumentPage';
 import AttendancePage from '../pages/attendance/AttendancePage';
 import SettlementPage from '../pages/settlement/SettlementPage';
+import CommunicationPage from '../pages/communication/CommunicationPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -238,6 +239,13 @@ function MainStack() {
                 <Stack.Screen
                     name="Account"
                     component={AccountPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                 <Stack.Screen
+                    name="Communication"
+                    component={CommunicationPage}
                     options={{
                         headerShown: false
                     }}

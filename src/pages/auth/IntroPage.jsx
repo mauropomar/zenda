@@ -53,8 +53,10 @@ export default function IntroPage() {
                 data={slides}
                 onDone={onShowLogin}
                 activeDotStyle={styles.activeTab}
-                nextLabel="Siguiente"
-                prevLabel="Anterior"
+                showSkipButton={false}
+                showNextButton={false}
+                showPrevButton={false}
+                showDoneButton={false}
             />
             <View style={styles.button}>
                 <Button

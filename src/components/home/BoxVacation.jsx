@@ -1,7 +1,7 @@
 import { View, StyleSheet, Image } from "react-native";
 import StyledText from "../input/StyledText";
 
-export default function BoxVacation({ isVacation, daysNumber }) {
+export default function BoxVacation({ isVacation, daysNumber, title }) {
     return (
         <View style={styles.container}>
             <View style={styles.icon}>
@@ -9,7 +9,7 @@ export default function BoxVacation({ isVacation, daysNumber }) {
                     <Image source={require('../../../assets/icons/medicaments.png')} />}
             </View>
             <View style={styles.containerText}>
-                <StyledText align='left' fontWeight='bold'>Vacaciones</StyledText>
+                <StyledText align='left' fontWeight='bold'>{title}</StyledText>
                 <StyledText align='left' style={styles.subText}>Restantes</StyledText>
             </View>
             <View style={styles.containerDays}>
