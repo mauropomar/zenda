@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native'
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import GlobalUtil from '../../utils/global';
 import { BottomPopup } from '../modal/BottomPopup';
@@ -40,10 +40,10 @@ const ToolbarChile = (props) => {
                     <StyledText style={styles.text}>Inicio</StyledText>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={props.onSelectAttendance}>
+            <TouchableOpacity onPress={props.onSelectRequest}>
                 <View style={styles.icon} >
-                    <Ionicons name="calendar-outline" size={24} color={props.color} />
-                    <StyledText style={styles.text}>Asistencia</StyledText>
+                    <FontAwesome5 name="calendar-check" size={24} color={props.color} />
+                    <StyledText style={styles.text}>Solicitudes</StyledText>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={props.onSelectOption}>
@@ -53,7 +53,7 @@ const ToolbarChile = (props) => {
             </TouchableOpacity>
             <TouchableOpacity onPress={props.onSelectDocument}>
                 <View style={styles.icon}>
-                    <Ionicons name="document-text-outline" size={24} color={props.color} />
+                <MaterialCommunityIcons name="folder-account-outline" size={24} color={props.color} />
                     <StyledText style={styles.text}>Documentos</StyledText>
                 </View>
             </TouchableOpacity>
@@ -89,8 +89,8 @@ export default function BottomToolbar() {
         navigation.navigate('FolderDocument');
     }
 
-    const onSelectAttendance = () => {
-        navigation.navigate('Attendance');
+    const onSelectRequest = () => {
+        navigation.navigate('StateRequest');
     }
 
     const onSelectOption = () => {
@@ -114,7 +114,7 @@ export default function BottomToolbar() {
                 onSelectHome={onSelectHome}
                 onSelectOther={onSelectOther}
                 onSelectOption={onSelectOption}
-                onSelectAttendance={onSelectAttendance}
+                onSelectRequest={onSelectRequest}
                 onSelectSettlement={onSelectSettlement}
                 onSelectDocument={onSelectDocument}
                 color={color}

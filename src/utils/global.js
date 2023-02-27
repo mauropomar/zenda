@@ -1,18 +1,7 @@
 
 
 const GlobalUtil = {
-    countrie: 'CHILE',
-    getHomeNavigation: function () {
-        if (this.countrie === "CHILE") {
-           
-        } else {
-            if (this.countrie === "PERU") {
-              
-            } else {
-                
-            }
-        }
-    }
+    countrie: 'CHILE'
 }
 
 export default GlobalUtil;

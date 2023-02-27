@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     },
     containerForm: {
         flex: 1,
+        marginTop: 20
     },
     form: {
         margin: 12,

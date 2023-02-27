@@ -1,45 +1,71 @@
 import React from 'react';
 import { Modal, Dimensions, TouchableWithoutFeedback, StyleSheet, View, Text, FlatList, Image, TouchableOpacity } from 'react-native'
 import StyledText from '../input/StyledText';
+import GlobalUtil from '../../utils/global';
 
-const data = [
+const items = [
     {
         id: '1',
+        title: 'Liquidaciones',
+        description: 'Liquidaciones',
+        icon: require('../../../assets/icons/settlement.png'),
+        name: 'Settlement'
+    },
+    {
+        id: '2',
         title: 'Anticipos',
         description: 'Pide tu anticipo segun fechas estimadas',
         icon: require('../../../assets/icons/advance_money.png'),
         name: 'Advance'
     },
     {
-        id: '2',
+        id: '3',
         title: 'Vacaciones',
         description: 'Pide tus vacaciones a feriados legales',
         icon: require('../../../assets/icons/beach_vacation.png'),
         name: 'Vacation'
     },
     {
-        id: '3',
+        id: '4',
         title: 'Permisos Administrativos',
         description: 'Pide tus permisos segun lo que necesites',
         icon: require('../../../assets/icons/time_date.png'),
         name: 'Permission'
     },
     {
-        id: '4',
+        id: '5',
+        title: 'Reclutamiento',
+        description: 'Reclutamiento',
+        icon: require('../../../assets/icons/recruitment.png'),
+        name: 'Recruitment'
+    },
+    {
+        id: '6',
         title: 'Evaluación',
         description: 'Evaluá a tu área o a compañeros de trabajo',
         icon: require('../../../assets/icons/evaluation.png'),
         name: 'Eveluacion'
     },
+    {
+        id: '7',
+        title: 'Tareas',
+        description: 'Tareas',
+        icon: require('../../../assets/icons/tasks.png'),
+        name: 'Task'
+    },
 ];
 
-const deviceHeight = Dimensions.get('window').height;
+let deviceHeight = Dimensions.get('window').height;
+
+
+
 export class BottomPopup extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            show: false
+            show: false,
+            data: []
         }
     }
 
@@ -52,8 +78,15 @@ export class BottomPopup extends React.Component {
     }
 
     onSelectOption = () => {
-        //  console.log('local');
-        //  this.navigation.navigate('Advance');
+    }
+
+    componentDidMount() {
+        if (GlobalUtil.countrie !== 'CHILE') {
+            const result = items.filter(v => v.name !== 'Task');
+            this.setState({ data: result });
+        } else {
+            this.setState({ data: items });
+        }
     }
 
     renderOutsideTouchable(onTouch) {
@@ -92,9 +125,9 @@ export class BottomPopup extends React.Component {
                 <FlatList
                     style={{ marginBottom: 20 }}
                     showsVerticalScrollIndicator={false}
-                    data={data}
+                    data={this.state.data}
                     renderItem={this.renderItem}
-                    extraData={data}
+                    extraData={this.state.data}
                     keyExtractor={(item, index) => index.toString()}
                     ItemSeparatorComponent={this.renderSeparator}
                     contentContainerStyle={{
@@ -158,7 +191,7 @@ export class BottomPopup extends React.Component {
                         borderTopRightRadius: 10,
                         borderTopLeftRadius: 10,
                         paddingHorizontal: 10,
-                        maxHeight: deviceHeight * 0.5
+                        maxHeight: deviceHeight * 0.7
                     }}>
                         {this.renderTitle()}
                         {this.renderContent()}
