@@ -31,6 +31,7 @@ import FolderDocumentPage from '../pages/document/FolderDocumentPage';
 import AttendancePage from '../pages/attendance/AttendancePage';
 import SettlementPage from '../pages/settlement/SettlementPage';
 import CommunicationPage from '../pages/communication/CommunicationPage';
+import IncorporationPage from '../pages/incorporation/IncorporationPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -246,6 +247,13 @@ function MainStack() {
                  <Stack.Screen
                     name="Communication"
                     component={CommunicationPage}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="Incorporation"
+                    component={IncorporationPage}
                     options={{
                         headerShown: false
                     }}

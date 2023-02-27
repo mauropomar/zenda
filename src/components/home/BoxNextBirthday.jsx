@@ -18,7 +18,7 @@ export default function BoxNextBirthDay({ elements }) {
 
 const styles = StyleSheet.create({
     container: {
-        width: 150,
+        width: '30%',
         backgroundColor: '#FBFCFC',
         alignItems: 'center',
         justifyContent: 'center',

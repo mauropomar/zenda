@@ -13,24 +13,31 @@ export default function CardHome() {
     const onShowBirthDayPage = () => {
         navigation.navigate("BirthDay")
     }
+
     const onShowCommunicationPage = () => {
         navigation.navigate("Communication")
     }
+
+    const onShowIncorporationPage = () => {
+        navigation.navigate("Incorporation")
+    }
+
     return (
         <View style={styles.container}>
+
             <View style={styles.titleContainer}>
                 <StyledText align='left' fontWeight='bold' style={styles.title}>Comunicaciones</StyledText>
                 <TouchableOpacity onPress={() => onShowCommunicationPage()}>
                     <Image style={styles.imageSeeMore} source={require('../../../assets/images/arrow-right.png')} />
                 </TouchableOpacity>
             </View>
-            <View style={styles.section}>
+            <View style={styles.sectionCard}>
                 <CardCommunication />
             </View>
 
             <View style={styles.titleContainer}>
                 <StyledText align='left' fontWeight='bold' style={styles.title}>Incorporaciones</StyledText>
-                <TouchableOpacity onPress={() => onShowBirthDayPage()}>
+                <TouchableOpacity onPress={() => onShowIncorporationPage()}>
                     <Image style={styles.imageSeeMore} source={require('../../../assets/images/arrow-right.png')} />
                 </TouchableOpacity>
             </View>
@@ -52,9 +59,11 @@ export default function CardHome() {
                 <BoxVacation isVacation={true} daysNumber={2} title="Vacaciones"/>
                 <BoxVacation isVacation={false} daysNumber={20} title="Licencia" />
             </View>
+
             <View style={styles.section}>
                 <BoxHoursWork daysNumber={20} />
             </View>
+            
             <StyledText align='left' fontWeight='bold' style={styles.title}>Últimas Solicitudes</StyledText>
             <View style={styles.sectionRequest}>
                 <CardLastRequest />
@@ -74,6 +83,9 @@ const styles = StyleSheet.create({
         padding: 10,
         justifyContent: 'space-around',
     },
+    sectionCard: {
+        padding: 2,
+    },
     sectionRequest: {
         flexDirection: 'row',
         gap: 1,
@@ -83,7 +95,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 20,
-        marginTop: 20,
+        marginTop: 0,
         marginLeft: 20
     },
     titleContainer: {
@@ -92,8 +104,9 @@ const styles = StyleSheet.create({
         marginRight: 10,
         paddingLeft: 10,
         paddingRight: 10,
+        marginTop: 10,
     },
     imageSeeMore: {
-        marginTop: 20,
+        marginTop: 10,
     },
 });

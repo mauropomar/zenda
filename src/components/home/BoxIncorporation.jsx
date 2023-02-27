@@ -16,7 +16,7 @@ export default function BoxIncorporation({ elements }) {
 
 const styles = StyleSheet.create({
     container: {
-        width: 150,
+        width: '30%',
         backgroundColor: '#FBFCFC',
         alignItems: 'center',
         justifyContent: 'center',
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         elevation: 8,
         margin: 5,
-        padding: 10
+        padding: 15
     },
     image: {
         width: 70,
