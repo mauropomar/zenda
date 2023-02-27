@@ -4,6 +4,7 @@ import {
     StyleSheet,
     ScrollView
 } from 'react-native';
+
 import BoxIncorporation from './BoxIncorporation';
 
 const arr = [
@@ -13,8 +14,7 @@ const arr = [
     { post: 'Tester', name: 'Ricardo', url: require('../../../assets/images/ricardo.jpg') }
 ]
 
-export default function CardIncorporation() {  
-    
+export default function CardIncorporation() {      
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView horizontal={true}>

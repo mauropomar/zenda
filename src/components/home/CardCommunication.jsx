@@ -110,22 +110,22 @@ const styles = StyleSheet.create({
 const slides = [
   {
     key: "s1",
-    text: "Best Recharge offers",
-    title: "Mobile Recharge",
+    text: "Zenda en Chile lo más",
+    title: "Zenda en Chile lo más destacado",
     image: require("../../../assets/images/communication.png"),
     backgroundColor: "#20d2bb",
   },
   {
     key: "s2",
-    title: "Flight Booking",
-    text: "Upto 25% off on Domestic Flights",
+    title: "Zenda en Chile lo más",
+    text: "Zenda en Colombia lo más",
     image: require("../../../assets/images/communication2.jpg"),
     backgroundColor: "#febe29",
   },
   {
     key: "s3",
-    title: "Great Offers",
-    text: "Enjoy Great offers on our all services",
+    title: "Zenda en Perú lo más",
+    text: "Zenda en Perú lo más",
     image: require("../../../assets/images/communication3.jpg"),
     backgroundColor: "#22bcb5",
   },
