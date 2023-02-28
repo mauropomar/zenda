@@ -41,7 +41,6 @@ const DateUtil = {
     convertToString: function (newDate, format) {
         const date = new Date(newDate);
         const day = date.getDate();
-        console.log(date.getMonth())
         const month = date.getMonth() < 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
         const year = date.getFullYear();
         let formatted;

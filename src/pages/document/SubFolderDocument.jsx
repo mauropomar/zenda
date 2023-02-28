@@ -49,11 +49,8 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
     },
-    view: {
-        marginTop: 50
-    },
     scrollView: {
-        marginTop: 50,
+        marginTop: 40,
         marginHorizontal: 5,
         height: deviceHeight
     }

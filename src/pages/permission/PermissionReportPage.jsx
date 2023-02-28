@@ -48,7 +48,6 @@ const renderSeparator = () => (
 
 const deviceHeight = Dimensions.get('window').height - 150;
 export default function PermissionReportPage() {
-    console.log(deviceHeight);
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/images/bg_tryniti.png')} resizeMode="cover" style={styles.image}>

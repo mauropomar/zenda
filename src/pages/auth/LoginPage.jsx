@@ -2,14 +2,13 @@ import React from "react";
 import { Formik, useField } from "formik";
 import { Button, View, StyleSheet, ImageBackground, Image, Alert, ScrollView, Text } from "react-native";
 import StyledTextInput from "../../components/input/StyleTextInput";
+import PasswordInput from "../../components/input/PasswordInput";
 import { loginValidationSchema } from "../../validationSchemas/LoginSchema";
 import StyledText from "../../components/input/StyledText";
 import { useNavigation } from '@react-navigation/native';
 import { Auth } from "aws-amplify";
 
 const initialValues = {
-  name: "",
-  lastName: "",
   email: "",
   password: "",
 };
@@ -25,6 +24,23 @@ const FormikInputValue = ({ name, ...props }) => {
   return (
     <>
       <StyledTextInput
+        error={meta.error}
+        value={field.value}
+        onChangeText={(value) => helpers.setValue(value)}
+        style={styles.input}
+        {...props}
+      />
+      {meta.error && <StyledText style={styles.error}>{meta.error}</StyledText>}
+    </>
+  );
+};
+
+const FormikPasswordInputValue = ({ name, ...props  }) => {
+  const [field, meta, helpers] = useField(name);
+
+  return (
+    <>
+      <PasswordInput
         error={meta.error}
         value={field.value}
         onChangeText={(value) => helpers.setValue(value)}
@@ -71,12 +87,11 @@ export default function LoginPage() {
               return (
                 <View style={styles.form}>
                   <FormikInputValue name="email" placeholder="Correo electrónico" style={styles.input} />
-                  <FormikInputValue
+                  <FormikPasswordInputValue  
                     name="password"
                     placeholder="Contraseña"
                     style={styles.input}
-                    secureTextEntry
-                  />
+                    />
                   <StyledText color='primary' fontWeight='bold' style={styles.forgotPassword} onPress={onShowForgotPassword}>¿Olvidaste tu contraseña?</StyledText>
                   <Button
                     onPress={handleSubmit}

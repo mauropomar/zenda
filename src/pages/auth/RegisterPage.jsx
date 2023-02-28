@@ -1,9 +1,10 @@
 import React from "react";
 import { Formik, useField } from "formik";
-import { Button, View, StyleSheet, ImageBackground, Image, Alert, ScrollView, Text } from "react-native";
+import { Button, View, StyleSheet, ImageBackground, Image, ScrollView, Text } from "react-native";
 import StyledTextInput from "../../components/input/StyleTextInput";
 import { registerValidationSchema } from "../../validationSchemas/RegisterSchema";
 import StyledText from "../../components/input/StyledText";
+import PasswordInput from "../../components/input/PasswordInput";
 import { useNavigation } from '@react-navigation/native';
 import { Auth } from "aws-amplify";
 
@@ -36,6 +37,22 @@ const FormikInputValue = ({ name, ...props }) => {
     );
 };
 
+const FormikPasswordInputValue = ({ name, ...props  }) => {
+    const [field, meta, helpers] = useField(name);  
+    return (
+      <>
+        <PasswordInput
+          error={meta.error}
+          value={field.value}
+          onChangeText={(value) => helpers.setValue(value)}
+          style={styles.input}
+          {...props}
+        />
+        {meta.error && <StyledText style={styles.error}>{meta.error}</StyledText>}
+      </>
+    );
+  };
+
 
 export default function RegisterPage() {
     const navigation = useNavigation();
@@ -54,7 +71,6 @@ export default function RegisterPage() {
                  password,
                  atributes: { email, name, preferred_username: username }
              });
-             console.log(response);
              navigation.navigate("ConfirmEmail")
          } catch (error) {
              Alert.alert('Error', e.message)
@@ -87,15 +103,13 @@ export default function RegisterPage() {
                                     <FormikInputValue name="lastName" placeholder="Apellidos" />
                                     <FormikInputValue name="email" placeholder="Correo electrónico" />
                                     <FormikInputValue name="phoneNumber" placeholder="Teléfono" />
-                                    <FormikInputValue
+                                    <FormikPasswordInputValue
                                         name="password"
                                         placeholder="Contraseña"
-                                        secureTextEntry
                                     />
-                                    <FormikInputValue
+                                    <FormikPasswordInputValue
                                         name="confirmpassword"
                                         placeholder="Repetir Contraseña"
-                                        secureTextEntry
                                     />
                                     <Button
                                         onPress={handleSubmit}
